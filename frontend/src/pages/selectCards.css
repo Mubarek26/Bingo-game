@@ -1,0 +1,112 @@
+body {
+  background-image: url('/frontend/public/images/bingo.webp');
+  background-size: cover; /* Makes the image cover the entire screen */
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.bingo-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: #3a1d5d;
+  color: white;
+  padding: 20px;
+  border-radius: 10px;
+  width: 100%;
+  max-width: 700px;
+  margin: auto;
+
+
+
+  background: radial-gradient(circle at center, rgba(255, 255, 255, 0.2), rgba(0, 0, 255, 0.5), rgba(128, 0, 128, 0.7), rgba(0, 0, 0, 0.9));
+    /* This creates a gradient from a light white (with low opacity) to dark blue, purple, and finally almost black, giving a depth and blur-like effect */
+    
+    /* Additional properties to enhance the visual effect */
+    background-size: cover;
+    background-position: center;
+}
+
+.timer {
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.price-label {
+  background-color: #a5a5a5;
+  padding: 10px;
+  border-radius: 10px;
+  margin-bottom: 10px;
+  font-weight: bold;
+  text-align: center;
+  width: 100%;
+  max-width: 150px;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(30px, 5fr));
+  gap: 10px;
+  background: #673ab7;
+  padding: 10px;
+  border-radius: 10px;
+  width: 100%;
+}
+
+.cell {
+  width: 100%;
+  height: 35px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: white;
+  color: black;
+  font-weight: bold;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background 0.3s;
+  font-size: 14px;
+}
+
+.cell.selected {
+  background: red;
+  color: white;
+}
+
+.shuffle-btn {
+  background: yellow;
+  padding: 10px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+  margin-bottom: 10px;
+  width: 100%;
+  max-width:42px;
+}
+
+@media (max-width: 600px) {
+  .grid {
+    grid-template-columns: repeat(auto-fit, minmax(30px, 1fr));
+  }
+  .cell {
+    height: 30px;
+    font-size: 12px;
+  }
+  .timer {
+    font-size: 18px;
+  }
+  .price-label {
+    font-size: 14px;
+  }
+  .shuffle-btn {
+    font-size: 14px;
+    padding: 8px;
+  }
+}
+@media(max-width:768px){
+  .bingo-container {
+    max-width: 400px;
+  }
+}
