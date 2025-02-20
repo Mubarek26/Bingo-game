@@ -1,0 +1,118 @@
+/* Navbar.css */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 2rem;
+  background: linear-gradient(90deg, #4a0080, #8a2be2); /* Purple gradient inspired by the image */
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  border-radius: 0 0 10px 10px; /* Slight curve at the bottom like in the image */
+}
+
+.logo {
+  color: #ffffff;
+  font-size: 1.5rem;
+  font-weight: 700;
+  font-family: 'Arial', sans-serif;
+  letter-spacing: 1px;
+  margin: 0;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+/* Simulate the logo circle with a pseudo-element or background */
+.logo::before {
+  content: '';
+  width: 30px;
+  height: 30px;
+  background: linear-gradient(45deg, #f1c40f, #f39c12); /* Yellow gradient for circular logo */
+  border-radius: 50%;
+  display: inline-block;
+  margin-right: 0.5rem;
+}
+
+.nav-links {
+  display: flex;
+  gap: 1.5rem;
+  align-items: center;
+}
+
+.nav-link {
+  color: #ffffff;
+  text-decoration: none;
+  font-size: 1.1rem;
+  font-weight: 500;
+  padding: 0.5rem 1rem;
+  transition: color 0.3s ease, transform 0.3s ease;
+  position: relative;
+  text-transform: uppercase; /* Matches the uppercase text in the image */
+}
+
+.nav-link:hover {
+  color: #f1c40f; /* Yellow hover effect inspired by logo */
+  transform: translateY(-2px);
+}
+
+/* Underline effect similar to the image's subtle line */
+.nav-link::after {
+  content: '';
+  position: absolute;
+  width: 0;
+  height: 2px;
+  bottom: -5px;
+  left: 50%;
+  background-color: #f1c40f;
+  transition: width 0.3s ease, left 0.3s ease;
+}
+
+.nav-link:hover::after {
+  width: 100%;
+  left: 0;
+}
+
+/* User profile section (not in original JSX but inspired by image) */
+.user-section {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.user-section .globe {
+  font-size: 1.2rem;
+  color: #ffffff;
+  margin-right: 0.5rem;
+}
+
+.user-section span {
+  color: #ffffff;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: color 0.3s ease;
+}
+
+.user-section span:hover {
+  color: #f1c40f;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  .navbar {
+    flex-direction: column;
+    padding: 1rem;
+  }
+
+  .nav-links {
+    margin-top: 1rem;
+    gap: 1rem;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .user-section {
+    margin-top: 1rem;
+  }
+}
