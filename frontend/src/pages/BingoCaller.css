@@ -1,0 +1,190 @@
+.bingo-caller {
+    /* background: #4B0082; */
+    background: radial-gradient(circle at center, rgba(255, 255, 255, 0.2), rgba(0, 0, 255, 0.5), rgba(128, 0, 128, 0.7), rgba(0, 0, 0, 0.9));
+    /* This creates a gradient from a light white (with low opacity) to dark blue, purple, and finally almost black, giving a depth and blur-like effect */
+    
+    /* Additional properties to enhance the visual effect */
+    background-size: cover;
+    background-position: center;
+    height: 100vh; /* Full viewport height */
+    margin: 0;
+    /* overflow: hidden;  */
+    color: white;
+    display: flex;
+    padding: 20px;
+    font-family: Arial, sans-serif;
+   
+    
+}
+
+.caller-info {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 10px;
+    padding: 20px;
+    margin-right: 20px;
+    width: 400px;
+}
+
+.bingo-ball {
+    width: 100px;
+    height: 100px;
+    background: #D3D3D3;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 10px;
+}
+
+.ball-inner {
+    width: 80px;
+    height: 80px;
+    background: white;
+    border-radius: 50%;
+}
+
+.caller-stats p {
+    margin: 5px 0;
+}
+
+.balls-called, .win-amount {
+    font-weight: bold;
+}
+
+.sound-toggle {
+    background: none;
+    border: none;
+    color: white;
+    font-size: 1.5em;
+    cursor: pointer;
+    margin-top: 10px;
+}
+
+.bingo-board {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    transform: rotate(-90deg);
+   
+}
+
+.bingo-board h2 {
+    margin-bottom: 10px;
+}
+
+.number-grid {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 10px;
+}
+
+.column {
+    display: flex;
+    flex-direction: column;
+}
+
+.column-header {
+    font-weight: bold;
+    padding: 5px;
+    border-radius: 5px;
+    text-align: center;
+    margin-bottom: 5px;
+}
+
+.column-header.b {
+    background: #3b5998;
+}
+
+.column-header.i {
+    background: #d4af37;
+}
+
+.column-header.n {
+    background: #cc0000;
+}
+
+.column-header.g {
+    background: #008000;
+}
+
+.column-header.o {
+    background: #ff4500;
+}
+
+.number-cell-call {
+    width: 40px;
+    height: 40px;
+    background: #464646;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 5px;
+    font-weight: bold;
+    transform: rotate(-270deg);
+    margin: 2px 2px;
+}
+
+/* Media query for mobile devices */
+@media (max-width: 768px) {
+    .bingo-caller {
+        /* flex-direction: column; */
+        padding: 10px;
+        
+       
+    }
+
+    .caller-info {
+        margin-right: 0;
+        margin-bottom: 20px;
+        width: 100%;
+        border-radius: 10px;
+        padding: 20px;
+        margin-right: 20px;
+       
+        
+    }
+
+    .bingo-ball {
+        width: 90px;
+        height: 90px;
+    }
+
+    .ball-inner {
+        width: 60px;
+        height: 60px;
+    }
+
+    .sound-toggle {
+        font-size: 1.2em;
+    }
+
+    /* Position the bingo board at the bottom */
+    .bingo-board {
+        order: 2;
+        margin-top: auto; /* Pushes the board to the bottom */
+        transform: rotate(0deg); /* Reset rotation for better readability on mobile */
+        
+    }
+
+    .number-grid {
+        grid-template-columns: repeat(5, 1fr); /* Keep the original grid layout on mobile */
+    }
+
+    .number-cell-call {
+        width: 25px;
+        height: 25px;
+        font-size: 0.8em;
+        transform: rotate(0deg); /* Reset rotation for better readability on mobile */
+    }
+
+    .column-header {
+        font-size: 1em;
+        padding: 5px;
+    }
+}
