@@ -1,6 +1,12 @@
 import React, { useState } from 'react';
 import './BingoCaller.css';
 
+import BallsCard from '../components/BallsCard';
+import ControlButtons from '../components/ControlButtons';
+import BingoCardContainer from '../components/BingoCardContainer';
+import BingoNumbers from '../components/BingoNumbers';
+import YourCard from '../components/YourCard';
+// import BingoNumbers from './BingoNumbers';
 const BingoGame = () => {
   const [calledNumbers, setCalledNumbers] = useState([17, 28, 39, 27, 55, 36]); // Previous 6 calls
   const [bingoCard] = useState([
@@ -18,159 +24,21 @@ const BingoGame = () => {
     return acc;
   }, {});
 
-  const drawNumber = () => {
-    const availableNumbers = Array.from({ length: 75 }, (_, i) => i + 1)
-      .filter(num => !calledNumbers.includes(num));
-    if (availableNumbers.length > 0) {
-      const newNumber = availableNumbers[Math.floor(Math.random() * availableNumbers.length)];
-      setCalledNumbers(prev => [newNumber, ...prev.slice(0, 5)]);
-      
-    }
-  };
-
-  const resetBoard = () => {
-    
-    setCalledNumbers([]);
-  };
-
   return (
     <div className="bingo-container">
       <header className="bingo-header">
         <h1>Let's Play <span role="img" aria-label="bingo ball">Bingo! 🎱</span></h1>
       </header>
-
       <div className="game-grid">
-    
-
         <div className="numbers-card">
-          <div className="bingo-numbers">
-            {Object.entries(bingoNumbers).map(([letter, numbers]) => (
-              <div key={letter} className="number-column">
-                <h3>{letter}</h3>
-                {numbers.map(num => (
-                  <span
-                    key={num}
-                    className={`bingo-number ${calledNumbers.includes(num) ? 'called' : ''}`}
-                  >
-                    {num}
-                  </span>
-                ))}
-              </div>
-            ))}
-          </div>
-          
-        <div className="balls-card">
-          <div className="balls-container">
-            <h1>Winner Card Numbers 🏆</h1>
-            <h2>💰Won Birr 500 ETB.</h2>
-            <div className="balls">
-              {calledNumbers.slice(0, 6).map((num, index) => (
-                <div key={index} className="ball">
-                  {num}
-                </div>
-              ))}
-                
-              </div>
-           
-          </div>
+          <BingoNumbers bingoNumbers={bingoNumbers} calledNumbers={calledNumbers} />
+          <BallsCard calledNumbers={ calledNumbers} />
         </div>
-        </div>
-
         <div className="card-card">
-          <div className="bingo-card-container">
-            <h3>Winner Cards</h3>
-            <div className="bingo-card">
-              {bingoCard.map((row, rowIndex) => (
-                <div key={rowIndex} className="card-row">
-                  {row.map((num, colIndex) => (
-                    <div
-                      key={`${rowIndex}-${colIndex}`}
-                      className={`card-cell ${num === 'FREE' ? 'free' : calledNumbers.includes(num) ? 'called' : ''}`}
-                    >
-                      {num}
-                    </div>
-                  ))}
-                </div>
-              ))}
-            </div>
-            <div className="bingo-card">
-              {bingoCard.map((row, rowIndex) => (
-                <div key={rowIndex} className="card-row">
-                  {row.map((num, colIndex) => (
-                    <div
-                      key={`${rowIndex}-${colIndex}`}
-                      className={`card-cell ${num === 'FREE' ? 'free' : calledNumbers.includes(num) ? 'called' : ''}`}
-                    >
-                      {num}
-                    </div>
-                  ))}
-                </div>
-              ))}
-            </div>
-          
-            <div className="bingo-card">
-              {bingoCard.map((row, rowIndex) => (
-                <div key={rowIndex} className="card-row">
-                  {row.map((num, colIndex) => (
-                    <div
-                      key={`${rowIndex}-${colIndex}`}
-                      className={`card-cell ${num === 'FREE' ? 'free' : calledNumbers.includes(num) ? 'called' : ''}`}
-                    >
-                      {num}
-                    </div>
-                  ))}
-                </div>
-              ))}
-            </div>
-            <div className="bingo-card">
-              {bingoCard.map((row, rowIndex) => (
-                <div key={rowIndex} className="card-row">
-                  {row.map((num, colIndex) => (
-                    <div
-                      key={`${rowIndex}-${colIndex}`}
-                      className={`card-cell ${num === 'FREE' ? 'free' : calledNumbers.includes(num) ? 'called' : ''}`}
-                    >
-                      {num}
-                    </div>
-                  ))}
-                </div>
-              ))}
-            </div>
-          
-         
-          </div>
-
-
-          <div className="bingo-card-container">
-            <h3>Your Card No,17 </h3>
-            <div className="bingo-card">
-              {bingoCard.map((row, rowIndex) => (
-                <div key={rowIndex} className="card-row">
-                  {row.map((num, colIndex) => (
-                    <div
-                      key={`${rowIndex}-${colIndex}`}
-                      className={`card-cell ${num === 'FREE' ? 'free' : calledNumbers.includes(num) ? 'called' : ''}`}
-                    >
-                      {num}
-                    </div>
-                  ))}
-                </div>
-              ))}
-            </div>
-          
-          
-          </div>
-          
-
+         <BingoCardContainer bingoCard={bingoCard} calledNumbers={calledNumbers} />
+           <YourCard title="Your Card No. 17" bingoCard={bingoCard} calledNumbers={calledNumbers} />
         </div>
-
-
-        <div className="buttons-card">
-          <div className="buttons">
-            <button onClick={drawNumber}>  Back</button>
-          
-          </div>
-        </div>
+        <ControlButtons/>
       </div>
     </div>
   );
