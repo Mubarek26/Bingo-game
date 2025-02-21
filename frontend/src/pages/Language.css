@@ -1,0 +1,44 @@
+/* Container for the language selector */
+.language-container {
+  display: flex;
+  justify-content: flex-end;
+  padding: 1rem;
+}
+
+/* Styling for the language select element */
+#lang {
+  width: 6rem;
+  padding: 0.5rem 1rem;
+  font-size: 1rem;
+  color: #333;
+  background-color: #ffffff;
+  border: 0.0625rem solid #ccc;
+  border-radius: 0.3125rem;
+  cursor: pointer;
+  outline: none;
+  transition: background-color 0.3s, border-color 0.3s;
+}
+
+/* Focus effect */
+#lang:focus {
+  background-color: #f1f1f1;
+  border-color: #3498db;
+}
+
+/* Option styling */
+#lang option {
+  padding: 0.75rem 1.125rem;
+}
+
+/* Hover effect */
+#lang option:hover {
+  background-color: #3498db;
+  color: white;
+}
+
+/* Disabled option styling */
+#lang option:disabled {
+  color: #999;
+  font-style: italic;
+  cursor: not-allowed;
+}

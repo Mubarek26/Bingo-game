@@ -3,13 +3,12 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 1rem 2rem;
+  padding: 0.5rem 2rem;
   background: linear-gradient(90deg, #4a0080, #8a2be2); /* Purple gradient inspired by the image */
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
   position: sticky;
-  top: 0;
-  z-index: 1000;
   border-radius: 0 0 10px 10px; /* Slight curve at the bottom like in the image */
+  margin: 10px;
 }
 
 .logo {
@@ -74,6 +73,12 @@
   left: 0;
 }
 
+.profile {
+  display: flex;
+  color: #fff;
+  gap: 1.5rem;
+}
+
 /* User profile section (not in original JSX but inspired by image) */
 .user-section {
   display: flex;
@@ -97,6 +102,10 @@
 .user-section span:hover {
   color: #f1c40f;
 }
+
+
+
+
 
 /* Responsive design */
 @media (max-width: 768px) {
