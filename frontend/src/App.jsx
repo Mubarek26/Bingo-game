@@ -6,6 +6,7 @@ import SelectCards from './pages/SelectCards';
 import Bingoboard from './pages/Bingoboard'
 
 import New from './components/GameResult';
+import BingoCaller from './pages/BingoCaller';
 function App() {
   return (
     <> 
@@ -15,6 +16,7 @@ function App() {
         <Route path="/SelectCards" element={<SelectCards />} />
         <Route path='/Bingoboard' element={<Bingoboard/> } />
         <Route path='/GameResult' element={<New/> } />
+        <Route path='/BingoCaller' element={<BingoCaller/> } />
        
       </Routes>
       
