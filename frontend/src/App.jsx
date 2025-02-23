@@ -6,10 +6,11 @@ import Bet from "./pages/Bet";
 import SelectCards from "./pages/SelectCards";
 import Bingoboard from "./pages/Bingoboard";
 import BingoCaller from "./pages/BingoCaller";
+import Bingopopup from "./pages/Bingopopup";
 import Login from "./pages/Login";
 import Signup from "./pages/Signup";
 import HowToPlay from "./pages/HowToPlay";
-import New from "./components/GameResult"; // Keeping this from mubarek branch
+import New from "./components/GameResult";
 
 function App() {
   const location = useLocation();
@@ -25,6 +26,7 @@ function App() {
         <Route path="/BetAmountPage" element={<Bet />} />
         <Route path="/SelectCards" element={<SelectCards />} />
         <Route path="/Bingoboard" element={<Bingoboard />} />
+        <Route path="/Bingopopup" element={<Bingopopup />} />
         <Route path="/Bingocaller" element={<BingoCaller />} />
         <Route path="/Howtoplay" element={<HowToPlay />} />
         <Route path="/GameResult" element={<New />} />
