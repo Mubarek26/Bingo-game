@@ -24,6 +24,7 @@ const BingoPopup = () => {
     popupHeader: {
       fontSize: "20px",
       fontWeight: "bold",
+      color: "purple",
     },
     promoImage: {
       width: "100%",
@@ -34,7 +35,7 @@ const BingoPopup = () => {
       top: "10px",
       right: "10px",
       background: "red",
-      color: "white",
+      color: "purple",
       border: "none",
       padding: "5px 10px",
       cursor: "pointer",
@@ -43,6 +44,7 @@ const BingoPopup = () => {
       fontSize: "18px",
       fontWeight: "bold",
       marginTop: "10px",
+      color: "purple",
     },
     prizes: {
       display: "flex",
@@ -51,6 +53,9 @@ const BingoPopup = () => {
     },
     prizeColumn: {
       textAlign: "left",
+      color: "purple",
+      fontSize: "16px ",
+      fontWeight: "bold",
     },
     socialLinks: {
       marginTop: "10px",
@@ -63,26 +68,22 @@ const BingoPopup = () => {
       <div style={styles.popupContent}>
         <h2 style={styles.popupHeader}>እቃዎች ቀላልነት ያላቸው ዝግጅት</h2>
         <img
-          src="/mnt/data/pop.png"
+          src="/frontend/public/images/ahun.jpg"
           alt="Bingo Promotion"
           style={styles.promoImage}
         />
-        <p style={styles.prizeTitle}>የ12,000 ብር የሽልማት መድረሻ</p>
         <div style={styles.prizes}>
           <div style={styles.prizeColumn}>
-            <h3>ትንሹ እጩዎች</h3>
-            <ul>
-              <li>1ኛ ሽልማት - 5,000 ብር</li>
-              <li>2ኛ ሽልማት - 2,500 ብር</li>
-              <li>3ኛ ሽልማት - 1,500 ብር</li>
-            </ul>
-          </div>
-          <div style={styles.prizeColumn}>
-            <h3>አንዳንድ እጩዎች</h3>
-            <ul>
-              <li>1ኛ ሽልማት - 1,500 ብር</li>
-              <li>2ኛ ሽልማት - 1,000 ብር</li>
-              <li>3ኛ ሽልማት - 500 ብር</li>
+            <ul className="prize-list">
+              <li>1 ጨዋታ = 1 ነጥብ ይቀላቀሉ </li>
+              <li>ተጫውተው ብቻ ይሸለሙ</li>
+              <li>
+                ለመከታተል <a href="#">Leaderboard</a> ይግቡ
+              </li>
+              <li>ለተጨማሪ ኢንፎርሜሽን የቴሌግራም ግሩፓችንን</li>
+              <li>
+                ለመቀላቀል <a href="#">ይህን ይጫኑ</a>
+              </li>
             </ul>
           </div>
         </div>
