@@ -1,255 +1,126 @@
-/* Reset and base styles */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+.bingo-wrapper {
+    text-align: center;
+    padding: 20px;
   }
   
-  body {
-    font-family: Arial, sans-serif;
-    background-color: #1a1a1a;
+  /* Called Number Circle */
+  .bingo-call-display {
+    background-color: #f3f3f3;
+    padding: 15px;
+    border-radius: 10px;
+    margin-bottom: 20px;
+    max-width: 400px;
+    margin-left: 2em;
+  }
+  
+  .bingo-number-circle {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    background-color: #4caf50;
+    color: white;
+    font-size: 24px;
+    line-height: 60px;
+    margin: auto;
+    font-weight: bold;
+  }
+  
+  /* Bingo Board */
+  .bingo-main-board {
+    display: grid;
+    grid-template-columns: repeat(15, 1fr);
+    gap: 5px;
+    max-width: 90%;
+    margin: auto;
+  }
+  
+  .bingo-board-cell {
+    width: 35px;
+    height: 35px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #e3e3e3;
+    border-radius: 5px;
+    font-weight: bold;
+  }
+  
+  .bingo-called {
+    background-color: #ff4d4d;
     color: white;
   }
   
-  /* Container for the entire game */
-  .bingo-container {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 1rem;
-    display: grid;
-    gap: 1rem;
+  .bingo-latest {
+    background-color: #4caf50;
+    color: white;
   }
   
-  /* Header */
-  .bingo-header {
-    text-align: center;
-    padding: 1rem;
-    /* background-color: #003366; */
-    border-radius: 8px;
+  /* Bingo Card */
+  .bingo-card-section {
+    margin-top: 20px;
   }
   
-  .bingo-header h1 {
-    font-size: clamp(1.5rem, 5vw, 2.5rem);
-  }
-  
-  /* Game Grid (cards layout) */
-  .game-grid {
-    display: grid;
-    gap: 1rem;
-    grid-template-areas: 
-      "numbers"
-      "card"
-      "balls"
-      "buttons";
-  }
-  
-  /* Cards (common styles) */
-  .numbers-card, .card-card, .balls-card {
-    background-color: #003366;
-    border-radius: 8px;
-    padding: 1rem;
-  }
-  
-  /* B-I-N-G-O numbers */
-  .numbers-card {
-    grid-area: numbers;
-  }
-  
-  .bingo-numbers {
-    display: grid;
-    
-    grid-template-columns: repeat(auto-fit, minmax(50px, 1fr));
-    overflow-x: hidden;
-  }
-  
-  .number-column {
+  .bingo-card-box {
     display: flex;
     flex-direction: column;
-    align-items: center;
-    
+    border: 3px solid rgba(255, 255, 255, 0.2);
+    width: 250px;
+    margin: auto;
+    background: white;
+    padding: 10px;
+
+    background: rgba(255, 255, 255, 0.1); /* Glassmorphism effect */
+    backdrop-filter: blur(10px);
+    border-radius: 15px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
   }
   
-  .number-column h3 {
-    font-size: clamp(1rem, 3vw, 1.2rem);
-    margin-bottom: 0.5rem;
-  }
-  
-  .bingo-number {
+  .bingo-card-header {
     display: flex;
-    justify-content: center;
-    align-items: center;
-    width: clamp(30px, 5vw, 40px);
-    height: clamp(30px, 5vw, 40px);
-    background-color: #0066cc;
-    border-radius: 50%;
-    margin: 0.2rem ;
-    font-size: clamp(0.7rem, 2vw, 1rem);
-    cursor: pointer;
-    transition: background-color 0.3s;
+    justify-content: space-between;
+    font-weight: bold;
+    font-size: 20px;
+    padding-bottom: 10px;
   }
   
-  .bingo-number.called {
-    background-color: #ff4444;
-  }
-  
-  /* Bingo card */
-  .card-card {
-    grid-area: card;
+  .bingo-card-row {
     display: flex;
-    justify-content: center;
-    
+    justify-content: space-between;
   }
   
-  .bingo-card-container {
-    width: 100%;
+  .bingo-card-cell {
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid #ccc;
+    font-size: 18px;
+    font-weight: bold;
+    gap: 7px;
    
   }
   
-  .bingo-card {
-    display: grid;
-    grid-template-columns: repeat(5, 1fr);
-    gap: 0.2rem;
-    max-width: clamp(200px, 30vw, 300px);
-    aspect-ratio: 1;
-    background-color: #003366;
-    padding: 0.5rem;
-    border-radius: 8px;
-    height: 40vh;
+  .bingo-marked {
+    background-color: #4caf50;
+    color: #dddd;
+   
   }
   
-  .card-row {
-    display: contents;
+  /* Bingo Button */
+  .bingo-button {
+    font-size: 18px;
+    padding: 10px 20px;
+    border-radius: 5px;
+    max-width: 200px;
   }
   
-  .card-cell {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 100%;
-    height: 100%;
-    background-color: #0066cc;
-    border: 1px solid #003366;
-    font-size: clamp(0.7rem, 2vw, 1rem);
-  }
-  
-  .card-cell.free {
-    background-color: #ffeb3b;
-    color: #1a1a1a;
-  }
-  
-  .card-cell.called {
-    background-color: #ff4444;
-  }
-  
-  /* Balls (current and previous calls) */
-  .balls-card {
-    grid-area: balls;
-  }
-  
-  .balls-container {
-    padding: 0.5rem;
-  
-  
-  }
-  
-  .balls {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0.5rem;
-    justify-content: center;
-  }
-  
-  .ball {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: clamp(30px, 5vw, 40px);
-    height: clamp(30px, 5vw, 40px);
-    background-color: #0066cc;
-    border-radius: 50%;
-    font-size: clamp(0.7rem, 2vw, 1rem);
-  }
-  
-  .balls-container h3 {
-    font-size: clamp(1rem, 3vw, 1.2rem);
-    margin-bottom: 0.5rem;
-    text-align: center;
-  }
-  
-  /* Buttons */
-  .buttons-card {
-    grid-area: buttons;
-  }
-  
-  .buttons {
-    display: flex;
-    flex-direction: column;
-    gap: 1rem;
-    padding: 0.5rem;
-    
-  }
-  
-  .buttons button {
-    padding: clamp(0.8rem, 3vw, 1.2rem);
-    font-size: clamp(1rem, 3vw, 1.2rem);
-    background-color: #0066cc;
-    color: white;
-    border: none;
-    border-radius: 8px;
-    cursor: pointer;
-    transition: background-color 0.3s;
-    margin: auto;
-    width: 400px;
-  }
-  
-  .buttons button:hover {
-    background-color: #004d99;
-  }
-  
-  /* Responsive Design - Tablet (768px and up) */
-  @media (min-width: 768px) {
-    .game-grid {
-      grid-template-areas: 
-        "numbers numbers"
-        "card balls"
-        "buttons buttons";
-      grid-template-columns: 1fr 1fr;
-    }
-  
-    .bingo-numbers {
-      grid-template-columns: repeat(5, 1fr);
-    }
-  
-    .buttons {
-      flex-direction: row;
-      justify-content: center;
+  /* Hide the main board on small and medium screens */
+  @media (max-width: 991px) {
+    .bingo-main-board {
+      display: none !important;
     }
   }
   
-  /* Responsive Design - Desktop (1024px and up) */
-  @media (min-width: 1024px) {
-    .game-grid {
-      grid-template-areas: 
-        "numbers numbers card"
-        "buttons buttons balls";
-      grid-template-columns: 1fr 1fr 1fr;
-    }
-  
-    .bingo-numbers {
-      grid-template-columns: repeat(5, 1fr);
-    }
-  
-    .bingo-card {
-      max-width: 400px;
-    }
-  
-    .balls {
-      flex-direction: row;
-      justify-content: flex-start;
-    }
-  
-    .buttons {
-      flex-direction: row;
-      justify-content: flex-start;
-    }
-  }
+  /* Update the main board grid to include the extra column */
