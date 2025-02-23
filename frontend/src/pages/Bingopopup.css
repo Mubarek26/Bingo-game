@@ -1,0 +1,55 @@
+.popup-container {
+  position: relative;
+  margin: auto;
+  width: 100%;
+  height: 100vh;
+  background-color: transparent;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.popup-content {
+  background-color: #ffd700;
+  padding: 20px;
+  border-radius: 10px;
+  text-align: center;
+  position: relative;
+  width: 400px;
+}
+
+.popup-header {
+  font-size: 20px;
+  font-weight: bold;
+  color: purple;
+}
+
+.promo-image {
+  width: 100%;
+  border-radius: 5px;
+}
+
+.close-button {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: #ffd700;
+  color: purple;
+  border: none;
+  padding: 5px 10px;
+  cursor: pointer;
+}
+
+.prizes {
+  display: flex;
+  justify-content: space-around;
+  margin-top: 10px;
+}
+
+.prize-column {
+  text-align: left;
+  color: purple;
+  font-size: 16px;
+  font-weight: bold;
+}
