@@ -1,45 +1,88 @@
-import React, { useState } from 'react';
-import './BingoCaller.css';
+import React, { useState } from "react";
+// import "bootstrap/dist/css/bootstrap.min.css";
+import "./BingoCaller.css"; // Import custom styles
 
-import BallsCard from '../components/BallsCard';
-import ControlButtons from '../components/ControlButtons';
-import BingoCardContainer from '../components/BingoCardContainer';
-import BingoNumbers from '../components/BingoNumbers';
-import YourCard from '../components/YourCard';
-// import BingoNumbers from './BingoNumbers';
 const BingoGame = () => {
-  const [calledNumbers, setCalledNumbers] = useState([17, 28, 39, 27, 55, 36]); // Previous 6 calls
-  const [bingoCard] = useState([
-    [1, 16, 31, 46, 61],
-    [2, 17, 18, 47, 62],
-    [3, 18, 'FREE', 48, 63],
-    [4, 19, 34, 49, 64],
-    [5, 20, 35, 50, 65],
-  ]);
+  // Bingo board (1-75)
+  const boardNumbers = Array.from({ length: 75 }, (_, i) => i + 1);
 
-  const bingoNumbers = Array.from({ length: 75 }, (_, i) => i + 1).reduce((acc, num) => {
-    const letter = 'BINGO'[(num - 1) / 15 | 0];
-    acc[letter] = acc[letter] || [];
-    acc[letter].push(num);
-    return acc;
-  }, {});
+  // Called numbers (for demo, select some numbers)
+  const calledNumbers = [1, 9, 12, 16, 29, 31, 39, 46, 55, 57, 61, 70];
 
+  // Bingo card numbers
+  const bingoCard = [
+    [2, 27, 35, 50, 68],
+    [9, 25, 38, 47, 62],
+    [8, 22, "F", 57, 67], // "F" is free space
+    [4, 20, 39, 59, 63],
+    [12, 3, 33, 56, 64],
+  ];
+
+  // State to track the latest number called
+  const [latestNumber, setLatestNumber] = useState(29);
+  const bingoLetters = ["B", "I", "N", "G", "O"];
   return (
-    <div className="bingo-container">
-      <header className="bingo-header">
-        <h1>Let's Play <span role="img" aria-label="bingo ball">Bingo! 🎱</span></h1>
-      </header>
-      <div className="game-grid">
-        <div className="numbers-card">
-          <BingoNumbers bingoNumbers={bingoNumbers} calledNumbers={calledNumbers} />
-          <BallsCard calledNumbers={ calledNumbers} />
-        </div>
-        <div className="card-card">
-         <BingoCardContainer bingoCard={bingoCard} calledNumbers={calledNumbers} />
-           <YourCard title="Your Card No. 17" bingoCard={bingoCard} calledNumbers={calledNumbers} />
-        </div>
-        <ControlButtons/>
+    <div className="bingo-wrapper row">
+      {/* Number Called Display */}
+      <div className="bingo-call-display text-center col-12 m-auto col-lg-4">
+        <div className="bingo-number-circle">{latestNumber}</div>
+        <p>Balls Called: {calledNumbers.length}</p>
+        <p>Win - 510 ETB</p>
       </div>
+
+      {/* Bingo Board (Visible Only on Large Screens) */}
+          <div className="bingo-main-board d-none d-lg-grid col-lg-6">
+          
+              {boardNumbers.map((num, index) => (
+                  
+              
+            
+            <div
+            
+            key={num}
+            className={`bingo-board-cell ${
+                num === latestNumber
+                ? "bingo-latest"
+                : calledNumbers.includes(num)
+                ? "bingo-called"
+                : ""
+                }`}
+                >
+                {num}
+                </div>
+            ))}
+            </div>
+
+      {/* Bingo Card */}
+      <div className="bingo-card-section mt-5">
+        <div className="bingo-card-box">
+          <div className="bingo-card-header">
+            <span>B</span>
+            <span>I</span>
+            <span>N</span>
+            <span>G</span>
+            <span>O</span>
+          </div>
+
+          {bingoCard.map((row, rowIndex) => (
+            <div key={rowIndex} className="bingo-card-row">
+              {row.map((num, colIndex) => (
+                <div
+                  key={colIndex}
+                  className={`bingo-card-cell ${
+                    calledNumbers.includes(num) || num === "F" ? "bingo-marked" : ""
+                  }`}
+                >
+                  {num}
+                </div>
+              ))}
+            </div>
+          ))}
+        </div>
+      <button className="btn btn-primary mt-3 bingo-button">Bingo</button>
+      </div>
+
+      {/* Bingo Button */}
     </div>
   );
 };

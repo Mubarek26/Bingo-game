@@ -1,0 +1,58 @@
+/* Container for the entire page */
+.how-to-play-container {
+  width: 80%;
+  margin: 20px auto;
+  font-family: Arial, sans-serif;
+  background-color: #f4f4f4;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Title of the page */
+.page-title {
+  text-align: center;
+  font-size: 2.5rem;
+  color: #333;
+  margin-bottom: 20px;
+  font-weight: bold;
+}
+
+/* Description text */
+.description {
+  text-align: center;
+  font-size: 1.2rem;
+  color: #555;
+  margin-bottom: 40px;
+  line-height: 1.6;
+}
+
+/* Instruction sections */
+.instructions {
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.05);
+}
+
+/* Section title for instructions */
+.section-title {
+  font-size: 1.8rem;
+  color: #007bff;
+  margin-bottom: 10px;
+}
+
+/* Footer message */
+.footer {
+  margin-top: 40px;
+  text-align: center;
+  font-size: 1.1rem;
+  color: #333;
+}
+
+/* Styling for the instruction paragraphs */
+.instructions p {
+  font-size: 1rem;
+  color: #555;
+  line-height: 1.6;
+}

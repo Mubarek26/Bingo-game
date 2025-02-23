@@ -1,5 +1,5 @@
 body {
-  background-image: url('/frontend/public/images/bingo.webp');
+  /* background-image: url('/frontend/public/images/bingo.webp'); */
   background-size: cover; /* Makes the image cover the entire screen */
   background-position: center;
   background-repeat: no-repeat;
