@@ -24,40 +24,44 @@ const BingoGame = () => {
   return (
     <div className="bingo-wrapper row">
       {/* Number Called Display */}
-      <div className="bingo-call-display text-center col-12 m-auto col-lg-4">
+      <div className="bingo-call-display   text-center col-12 m-auto col-lg-4">
         <div className="bingo-number-circle">{latestNumber}</div>
         <p>Balls Called: {calledNumbers.length}</p>
         <p>Win - 510 ETB</p>
       </div>
 
       {/* Bingo Board (Visible Only on Large Screens) */}
-          <div className="bingo-main-board d-none d-lg-grid col-lg-6">
-          
-              {boardNumbers.map((num, index) => (
-                  
-              
-            
+      <div className="bingo-main-board-wrapper me-5 col-md-7 d-none d-lg-flex col-lg-7">
+        <div className="bingo-column-labels">
+          {bingoLetters.map((letter, index) => (
+            <div key={index} className="bingo-board-letter">{letter}</div>
+          ))}
+        </div>
+        <div className="bingo-main-board ">
+          {boardNumbers.map((num, index) => (
             <div
-            
-            key={num}
-            className={`bingo-board-cell ${
+              key={num}
+              className={`bingo-board-cell ${
                 num === latestNumber
-                ? "bingo-latest"
-                : calledNumbers.includes(num)
-                ? "bingo-called"
-                : ""
-                }`}
-                >
-                {num}
-                </div>
-            ))}
+                  ? "bingo-latest"
+                  : calledNumbers.includes(num)
+                  ? "bingo-called"
+                  : ""
+              }`}
+            >
+              {num}
             </div>
+          ))}
+        </div>
+      </div>
 
       {/* Bingo Card */}
       <div className="bingo-card-section mt-5">
-        <div className="bingo-card-box">
-          <div className="bingo-card-header">
-            <span>B</span>
+              <div className="bingo-card-box">
+                  <h2>Card No. 45</h2>
+                  <div className="bingo-card-header">
+                      
+            <span>B </span>
             <span>I</span>
             <span>N</span>
             <span>G</span>
