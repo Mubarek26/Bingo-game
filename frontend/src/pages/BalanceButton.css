@@ -1,0 +1,29 @@
+.balance-container {
+  width: 100%;
+  display: flex;
+  justify-content: flex-end; /* Align button to the left */
+  align-items: center;
+  padding: 0.25rem 1rem;
+}
+
+.balance-button {
+  padding: 0.25rem 2.25rem;
+  font-size: 1.2rem;
+  font-weight: bold;
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  border-radius: 2rem;
+  cursor: pointer;
+  box-shadow: 0 0.25rem 0.5rem rgba(0, 0, 0, 0.1);
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.balance-button:hover {
+  background-color: #45a049;
+  transform: scale(1.05);
+}
+
+.balance-button:focus {
+  outline: none;
+}
