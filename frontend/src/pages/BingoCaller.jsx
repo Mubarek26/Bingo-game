@@ -1,45 +1,47 @@
-import React from 'react';
+import React, { useState } from 'react';
 import './BingoCaller.css';
 
-const BingoCaller = () => {
-  const columns = ['B', 'I', 'N', 'G', 'O'];
-  const numbers = [
-    Array.from({length: 15}, (_, i) => i + 1),
-    Array.from({length: 15}, (_, i) => i + 16),
-    Array.from({length: 15}, (_, i) => i + 31),
-    Array.from({length: 15}, (_, i) => i + 46),
-    Array.from({length: 15}, (_, i) => i + 61)
-  ];
+import BallsCard from '../components/BallsCard';
+import ControlButtons from '../components/ControlButtons';
+import BingoCardContainer from '../components/BingoCardContainer';
+import BingoNumbers from '../components/BingoNumbers';
+import YourCard from '../components/YourCard';
+// import BingoNumbers from './BingoNumbers';
+const BingoGame = () => {
+  const [calledNumbers, setCalledNumbers] = useState([17, 28, 39, 27, 55, 36]); // Previous 6 calls
+  const [bingoCard] = useState([
+    [1, 16, 31, 46, 61],
+    [2, 17, 18, 47, 62],
+    [3, 18, 'FREE', 48, 63],
+    [4, 19, 34, 49, 64],
+    [5, 20, 35, 50, 65],
+  ]);
+
+  const bingoNumbers = Array.from({ length: 75 }, (_, i) => i + 1).reduce((acc, num) => {
+    const letter = 'BINGO'[(num - 1) / 15 | 0];
+    acc[letter] = acc[letter] || [];
+    acc[letter].push(num);
+    return acc;
+  }, {});
 
   return (
-    <div className="bingo-caller">
-      <div className="caller-info">
-        <div className="bingo-ball">
-          <div className="ball-inner"></div>
+    <div className="bingo-container">
+      <header className="bingo-header">
+        <h1>Let's Play <span role="img" aria-label="bingo ball">Bingo! 🎱</span></h1>
+      </header>
+      <div className="game-grid">
+        <div className="numbers-card">
+          <BingoNumbers bingoNumbers={bingoNumbers} calledNumbers={calledNumbers} />
+          <BallsCard calledNumbers={ calledNumbers} />
         </div>
-        <div className="caller-stats">
-          <p>Balls Called: <span className="balls-called">0</span></p>
-          <p>Win: <span className="win-amount">0 ETB</span></p>
+        <div className="card-card">
+         <BingoCardContainer bingoCard={bingoCard} calledNumbers={calledNumbers} />
+           <YourCard title="Your Card No. 17" bingoCard={bingoCard} calledNumbers={calledNumbers} />
         </div>
-        <button className="sound-toggle">
-          <span role="img" aria-label="sound">🔊</span>
-        </button>
-      </div>
-      <div className="bingo-board">
-        <h2>Good Luck!!</h2>
-        <div className="number-grid">
-          {columns.map((column, columnIndex) => (
-            <div key={columnIndex} className="column">
-              <div className={`column-header ${column.toLowerCase()}`}>{column}</div>
-              {numbers[columnIndex].map((number, numberIndex) => (
-                <div key={numberIndex} className="number-cell-call">{number}</div>
-              ))}
-            </div>
-          ))}
-        </div>
+        <ControlButtons/>
       </div>
     </div>
   );
 };
 
-export default BingoCaller;
+export default BingoGame;

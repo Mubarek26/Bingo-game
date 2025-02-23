@@ -1,190 +1,255 @@
-.bingo-caller {
-    /* background: #4B0082; */
-    background: radial-gradient(circle at center, rgba(255, 255, 255, 0.2), rgba(0, 0, 255, 0.5), rgba(128, 0, 128, 0.7), rgba(0, 0, 0, 0.9));
-    /* This creates a gradient from a light white (with low opacity) to dark blue, purple, and finally almost black, giving a depth and blur-like effect */
-    
-    /* Additional properties to enhance the visual effect */
-    background-size: cover;
-    background-position: center;
-    height: 100vh; /* Full viewport height */
+/* Reset and base styles */
+* {
     margin: 0;
-    /* overflow: hidden;  */
-    color: white;
-    display: flex;
-    padding: 20px;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  body {
     font-family: Arial, sans-serif;
-   
-    
-}
-
-.caller-info {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    background: rgba(255, 255, 255, 0.1);
-    border-radius: 10px;
-    padding: 20px;
-    margin-right: 20px;
-    width: 400px;
-}
-
-.bingo-ball {
-    width: 100px;
-    height: 100px;
-    background: #D3D3D3;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin-bottom: 10px;
-}
-
-.ball-inner {
-    width: 80px;
-    height: 80px;
-    background: white;
-    border-radius: 50%;
-}
-
-.caller-stats p {
-    margin: 5px 0;
-}
-
-.balls-called, .win-amount {
-    font-weight: bold;
-}
-
-.sound-toggle {
-    background: none;
-    border: none;
+    background-color: #1a1a1a;
     color: white;
-    font-size: 1.5em;
-    cursor: pointer;
-    margin-top: 10px;
-}
-
-.bingo-board {
-    flex-grow: 1;
+  }
+  
+  /* Container for the entire game */
+  .bingo-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 1rem;
+    display: grid;
+    gap: 1rem;
+  }
+  
+  /* Header */
+  .bingo-header {
+    text-align: center;
+    padding: 1rem;
+    /* background-color: #003366; */
+    border-radius: 8px;
+  }
+  
+  .bingo-header h1 {
+    font-size: clamp(1.5rem, 5vw, 2.5rem);
+  }
+  
+  /* Game Grid (cards layout) */
+  .game-grid {
+    display: grid;
+    gap: 1rem;
+    grid-template-areas: 
+      "numbers"
+      "card"
+      "balls"
+      "buttons";
+  }
+  
+  /* Cards (common styles) */
+  .numbers-card, .card-card, .balls-card {
+    background-color: #003366;
+    border-radius: 8px;
+    padding: 1rem;
+  }
+  
+  /* B-I-N-G-O numbers */
+  .numbers-card {
+    grid-area: numbers;
+  }
+  
+  .bingo-numbers {
+    display: grid;
+    
+    grid-template-columns: repeat(auto-fit, minmax(50px, 1fr));
+    overflow-x: hidden;
+  }
+  
+  .number-column {
     display: flex;
     flex-direction: column;
     align-items: center;
-    transform: rotate(-90deg);
+    
+  }
+  
+  .number-column h3 {
+    font-size: clamp(1rem, 3vw, 1.2rem);
+    margin-bottom: 0.5rem;
+  }
+  
+  .bingo-number {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: clamp(30px, 5vw, 40px);
+    height: clamp(30px, 5vw, 40px);
+    background-color: #0066cc;
+    border-radius: 50%;
+    margin: 0.2rem ;
+    font-size: clamp(0.7rem, 2vw, 1rem);
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+  
+  .bingo-number.called {
+    background-color: #ff4444;
+  }
+  
+  /* Bingo card */
+  .card-card {
+    grid-area: card;
+    display: flex;
+    justify-content: center;
+    
+  }
+  
+  .bingo-card-container {
+    width: 100%;
    
-}
-
-.bingo-board h2 {
-    margin-bottom: 10px;
-}
-
-.number-grid {
+  }
+  
+  .bingo-card {
     display: grid;
     grid-template-columns: repeat(5, 1fr);
-    gap: 10px;
-}
-
-.column {
+    gap: 0.2rem;
+    max-width: clamp(200px, 30vw, 300px);
+    aspect-ratio: 1;
+    background-color: #003366;
+    padding: 0.5rem;
+    border-radius: 8px;
+    height: 40vh;
+  }
+  
+  .card-row {
+    display: contents;
+  }
+  
+  .card-cell {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    background-color: #0066cc;
+    border: 1px solid #003366;
+    font-size: clamp(0.7rem, 2vw, 1rem);
+  }
+  
+  .card-cell.free {
+    background-color: #ffeb3b;
+    color: #1a1a1a;
+  }
+  
+  .card-cell.called {
+    background-color: #ff4444;
+  }
+  
+  /* Balls (current and previous calls) */
+  .balls-card {
+    grid-area: balls;
+  }
+  
+  .balls-container {
+    padding: 0.5rem;
+  
+  
+  }
+  
+  .balls {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    justify-content: center;
+  }
+  
+  .ball {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: clamp(30px, 5vw, 40px);
+    height: clamp(30px, 5vw, 40px);
+    background-color: #0066cc;
+    border-radius: 50%;
+    font-size: clamp(0.7rem, 2vw, 1rem);
+  }
+  
+  .balls-container h3 {
+    font-size: clamp(1rem, 3vw, 1.2rem);
+    margin-bottom: 0.5rem;
+    text-align: center;
+  }
+  
+  /* Buttons */
+  .buttons-card {
+    grid-area: buttons;
+  }
+  
+  .buttons {
     display: flex;
     flex-direction: column;
-}
-
-.column-header {
-    font-weight: bold;
-    padding: 5px;
-    border-radius: 5px;
-    text-align: center;
-    margin-bottom: 5px;
-}
-
-.column-header.b {
-    background: #3b5998;
-}
-
-.column-header.i {
-    background: #d4af37;
-}
-
-.column-header.n {
-    background: #cc0000;
-}
-
-.column-header.g {
-    background: #008000;
-}
-
-.column-header.o {
-    background: #ff4500;
-}
-
-.number-cell-call {
-    width: 40px;
-    height: 40px;
-    background: #464646;
+    gap: 1rem;
+    padding: 0.5rem;
+    
+  }
+  
+  .buttons button {
+    padding: clamp(0.8rem, 3vw, 1.2rem);
+    font-size: clamp(1rem, 3vw, 1.2rem);
+    background-color: #0066cc;
     color: white;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border-radius: 5px;
-    font-weight: bold;
-    transform: rotate(-270deg);
-    margin: 2px 2px;
-}
-
-/* Media query for mobile devices */
-@media (max-width: 768px) {
-    .bingo-caller {
-        /* flex-direction: column; */
-        padding: 10px;
-        
-       
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    margin: auto;
+    width: 400px;
+  }
+  
+  .buttons button:hover {
+    background-color: #004d99;
+  }
+  
+  /* Responsive Design - Tablet (768px and up) */
+  @media (min-width: 768px) {
+    .game-grid {
+      grid-template-areas: 
+        "numbers numbers"
+        "card balls"
+        "buttons buttons";
+      grid-template-columns: 1fr 1fr;
     }
-
-    .caller-info {
-        margin-right: 0;
-        margin-bottom: 20px;
-        width: 100%;
-        border-radius: 10px;
-        padding: 20px;
-        margin-right: 20px;
-       
-        
+  
+    .bingo-numbers {
+      grid-template-columns: repeat(5, 1fr);
     }
-
-    .bingo-ball {
-        width: 90px;
-        height: 90px;
+  
+    .buttons {
+      flex-direction: row;
+      justify-content: center;
     }
-
-    .ball-inner {
-        width: 60px;
-        height: 60px;
+  }
+  
+  /* Responsive Design - Desktop (1024px and up) */
+  @media (min-width: 1024px) {
+    .game-grid {
+      grid-template-areas: 
+        "numbers numbers card"
+        "buttons buttons balls";
+      grid-template-columns: 1fr 1fr 1fr;
     }
-
-    .sound-toggle {
-        font-size: 1.2em;
+  
+    .bingo-numbers {
+      grid-template-columns: repeat(5, 1fr);
     }
-
-    /* Position the bingo board at the bottom */
-    .bingo-board {
-        order: 2;
-        margin-top: auto; /* Pushes the board to the bottom */
-        transform: rotate(0deg); /* Reset rotation for better readability on mobile */
-        
+  
+    .bingo-card {
+      max-width: 400px;
     }
-
-    .number-grid {
-        grid-template-columns: repeat(5, 1fr); /* Keep the original grid layout on mobile */
+  
+    .balls {
+      flex-direction: row;
+      justify-content: flex-start;
     }
-
-    .number-cell-call {
-        width: 25px;
-        height: 25px;
-        font-size: 0.8em;
-        transform: rotate(0deg); /* Reset rotation for better readability on mobile */
+  
+    .buttons {
+      flex-direction: row;
+      justify-content: flex-start;
     }
-
-    .column-header {
-        font-size: 1em;
-        padding: 5px;
-    }
-}
+  }
