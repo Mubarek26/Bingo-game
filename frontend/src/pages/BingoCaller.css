@@ -32,6 +32,8 @@
     gap: 5px;
     max-width: 90%;
     margin: auto;
+    margin-left: 5px;
+   
   }
   
   .bingo-board-cell {
@@ -43,6 +45,7 @@
     background-color: #e3e3e3;
     border-radius: 5px;
     font-weight: bold;
+  
   }
   
   .bingo-called {
@@ -67,7 +70,7 @@
     width: 250px;
     margin: auto;
     background: white;
-    padding: 10px;
+    padding: 7px 15px;
 
     background: rgba(255, 255, 255, 0.1); /* Glassmorphism effect */
     backdrop-filter: blur(10px);
@@ -80,13 +83,30 @@
     display: flex;
     justify-content: space-between;
     font-weight: bold;
-    font-size: 20px;
+    font-size: 30px; /* Increased font size for emphasis */
     padding-bottom: 10px;
+    letter-spacing: 8px; /* Adds space between the letters */
+    text-transform: uppercase; /* Ensures letters are all uppercase */
+    color: #333; /* Text color */
+    margin-left: -9px;
   }
+  
+  .bingo-card-header span {
+    padding: 0 10px; /* Adds space around each letter */
+    text-align: center;
+    color: #f2a900; /* You can change the color for a more vibrant look */
+  }
+  
   
   .bingo-card-row {
     display: flex;
     justify-content: space-between;
+    margin-bottom: 5px;
+    /* background-color: red; */
+    margin-right: -7px;
+    margin-left: -7px;
+    
+    
   }
   
   .bingo-card-cell {
@@ -98,7 +118,8 @@
     border: 1px solid #ccc;
     font-size: 18px;
     font-weight: bold;
-    gap: 7px;
+    
+   /* background-color: red; */
    
   }
   
@@ -113,7 +134,7 @@
     font-size: 18px;
     padding: 10px 20px;
     border-radius: 5px;
-    max-width: 200px;
+    max-width: 250px;
   }
   
   /* Hide the main board on small and medium screens */
@@ -124,3 +145,31 @@
   }
   
   /* Update the main board grid to include the extra column */
+/* Bingo Board Wrapper */
+.bingo-main-board-wrapper {
+    display: flex;
+    align-items: center;
+  }
+  
+  /* BINGO Column Labels */
+  .bingo-column-labels {
+    display: grid;
+    grid-template-rows: repeat(5, 1fr);
+    gap: 5px;
+    /* margin-right: 10px; */
+ 
+  }
+  
+  .bingo-board-letter {
+    width: 35px;
+    height: 35px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    font-size: 18px;
+    background-color: #6c757d;
+    color: white;
+    border-radius: 5px;
+  }
+  
