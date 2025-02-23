@@ -1,15 +1,16 @@
 import './GameResult.css';
 
-function YourCard({ bingoCard, calledNumbers,gameStatus }) {
+function WinnerCards({ bingoCard, calledNumbers, gameStatus }) {
+ 
   return (  // Added return statement
     <>
-        <h3 className='bg-blue'>Your Card</h3>
-    <div className="bingo-card x-background"
-    style={{
-      backgroundColor: gameStatus === "win" ? "#4CAF50" : gameStatus === "lose" ? "#F44336" : "#ffffff",
-    }}
+       
+      <div className="bingo-card mt-4 "
+       style={{
+        backgroundColor: gameStatus === "win" ? "#4CAF50" : gameStatus === "lose" ? "#F44336" : "#ffffff",
+      }}
+      
       >
-    
       <div className="card-header">
         {['B', 'I', 'N', 'G', 'O'].map((letter) => (
           <span key={letter} className="letter">{letter}</span>
@@ -20,8 +21,8 @@ function YourCard({ bingoCard, calledNumbers,gameStatus }) {
           <div key={rowIndex} className="card-row">
             {row.map((number, colIndex) => (
               <div
-                key={`${rowIndex}-${colIndex}`}
-                className={`number ${calledNumbers.includes(number) ? 'highlighted' : ''}`}
+              key={`${rowIndex}-${colIndex}`}
+              className={`number ${calledNumbers.includes(number) ? 'highlighted' : ''}`}
               >
                 {number === 'FREE' ? 'FREE' : number}
               </div>
@@ -34,4 +35,4 @@ function YourCard({ bingoCard, calledNumbers,gameStatus }) {
   );
 }
 
-export default YourCard;
+export default WinnerCards;

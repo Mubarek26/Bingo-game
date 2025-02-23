@@ -4,17 +4,20 @@ import './App.css';
 import Bet from './pages/Bet';
 import SelectCards from './pages/SelectCards';
 import Bingoboard from './pages/Bingoboard'
-import BingoCaller from './pages/BingoCaller';
+
+import New from './components/GameResult';
 function App() {
   return (
-    <>
-      
+    <> 
       <Routes>
+        
         <Route path="/BetAmountPage" element={<Bet />} />
         <Route path="/SelectCards" element={<SelectCards />} />
         <Route path='/Bingoboard' element={<Bingoboard/> } />
-        <Route path='/Bingocaller' element={<BingoCaller/> } />
+        <Route path='/GameResult' element={<New/> } />
+       
       </Routes>
+      
    </>
    
   );
