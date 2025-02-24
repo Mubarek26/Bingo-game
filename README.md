@@ -1,4 +1,4 @@
-Here’s a good starting point for your README file to encourage collaboration on your Bingo game project:  
+
 
 ---
 
