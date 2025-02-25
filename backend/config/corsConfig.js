@@ -1,4 +1,5 @@
 module.exports = {
-    origin: '*',  // You can customize this depending on your frontend
+    origin: "http://localhost:5173", // Adjust to your frontend URL
+    methods: ["GET", "POST"],
+    credentials: true,
   };
-  
