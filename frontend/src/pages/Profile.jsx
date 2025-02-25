@@ -1,14 +1,9 @@
 import { useState } from "react";
+import { Link } from "react-router-dom";  // Import Link from React Router
 import "./Profile.css"; // Import updated CSS file
 
 const Profile = () => {
   const [isOpen, setIsOpen] = useState(false);
-
-  const handleSelection = (option) => {
-    if (option === "Logout") {
-      alert("Logging out..."); // Replace with actual logout logic
-    }
-  };
 
   return (
     <div
@@ -18,10 +13,10 @@ const Profile = () => {
     >
       {/* Profile Image and Username */}
       <div className="profile-header">
-        <img 
-          src="https://placehold.co/40x40" 
-          alt="Profile" 
-          className="profile-image" 
+        <img
+          src="https://placehold.co/40x40"
+          alt="Profile"
+          className="profile-image"
         />
         <span className="profile-username">Username</span>
       </div>
@@ -29,11 +24,17 @@ const Profile = () => {
       {isOpen && (
         <>
           <ul className="menu">
-            <li onClick={() => handleSelection("Wallet")}>Wallet</li>
-            <li onClick={() => handleSelection("Profile")}>Profile</li>
-            <li onClick={() => handleSelection("History")}>History</li>
-            <li className="logout" onClick={() => handleSelection("Logout")}>
-              Logout
+            <li>
+              <Link to="/wallet">Wallet</Link> {/* Link to Wallet page */}
+            </li>
+            <li>
+              <Link to="/profile">Profile</Link> {/* Link to Profile page */}
+            </li>
+            <li>
+              <Link to="/history">History</Link> {/* Link to History page */}
+            </li>
+            <li className="logout">
+              <span onClick={() => alert("Logging out...")}>Logout</span> {/* Replace with actual logout logic */}
             </li>
           </ul>
         </>
