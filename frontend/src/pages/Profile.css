@@ -1,30 +1,75 @@
-/* New style for selected buttons */
-.selected-btn {
-  background-color: #007bff; /* Blue background */
-  color: white;              /* White text */
-  border: 2px solid #0056b3; /* Darker blue border */
-  border-radius: 30px;       /* Rounded corners */
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow */
-  transition: all 0.3s ease;
+/* Profile Container */
+.profile-container {
+  position: relative;
+  display: inline-block;
+  cursor: pointer;
 }
 
-.selected-btn:hover {
-  background-color: #0056b3; /* Darker blue on hover */
-  box-shadow: 0 6px 10px rgba(0, 0, 0, 0.2); /* Stronger shadow */
-  transform: translateY(-3px); /* Lift effect on hover */
+/* Profile Header (Image and Username) */
+.profile-header {
+  display: flex;
+  align-items: center;
+  padding: 10px;
+  background-color: #f8f9fa; /* Light gray background */
+  border-radius: 5px;
+  border: 1px solid #ddd;
 }
 
-/* Default button style (not selected) */
-.btn-custom {
-  background-color: #f8f9fa; /* Light background */
-  color: #495057;            /* Dark text */
-  border: 2px solid #d6d8db; /* Light border */
-  border-radius: 30px;       /* Rounded corners */
-  transition: all 0.3s ease;
+.profile-image {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  margin-right: 10px;
 }
 
-.btn-custom:hover {
-  background-color: #e2e6ea; /* Light grey background on hover */
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow */
-  transform: translateY(-3px); /* Lift effect on hover */
+.profile-username {
+  font-weight: bold;
+  color: #333;
+}
+
+/* Dropdown Menu */
+.menu {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  width: 150px;
+  background: white;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+  border-radius: 5px;
+  padding: 0;
+  margin-top: 5px;
+  list-style: none;
+  z-index: 1000;
+}
+
+.menu li {
+  padding: 10px;
+  text-align: center;
+  transition: background 0.3s ease-in-out;
+}
+
+.menu li a {
+  text-decoration: none;
+  color: #333;
+  display: block;
+}
+
+.menu li:hover {
+  background: #007bff; /* Bootstrap primary blue */
+}
+
+.menu li:hover a {
+  color: white;
+}
+
+/* Logout Button */
+.logout {
+  color: red;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.logout:hover {
+  background: #dc3545; /* Bootstrap danger red */
+  color: white;
 }
