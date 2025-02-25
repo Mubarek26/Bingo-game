@@ -1,38 +1,43 @@
-import { useState } from 'react';
-import './Profile.css';
+import { useState } from "react";
+import "./Profile.css"; // Import updated CSS file
 
 const Profile = () => {
-  const [selectedOption, setSelectedOption] = useState('');
+  const [isOpen, setIsOpen] = useState(false);
 
-  const handleSelectChange = (e) => {
-    const value = e.target.value;
-    setSelectedOption(value);
-
-    // Handle different options
-    if (value === 'wallet') {
-      console.log("Wallet selected");
-    } else if (value === 'profile') {
-      console.log("Profile selected");
-    } else if (value === 'history') {
-      console.log("History selected");
-    } else if (value === 'logout') {
-      console.log("Logout selected");
+  const handleSelection = (option) => {
+    if (option === "Logout") {
+      alert("Logging out..."); // Replace with actual logout logic
     }
   };
 
   return (
-    <div className="dropdown-container">
-          <select
-            id="dropdown-select"
-            value={selectedOption}
-            onChange={handleSelectChange}
-            className="dropdown-select"
-          >
-            <option value="wallet">Wallet</option>
-            <option value="profile">Profile</option>
-            <option value="history">History</option>
-            <option value="logout">Logout</option>
-          </select>
+    <div
+      className="profile-container"
+      onMouseEnter={() => setIsOpen(true)}
+      onMouseLeave={() => setIsOpen(false)}
+    >
+      {/* Profile Image and Username */}
+      <div className="profile-header">
+        <img 
+          src="https://placehold.co/40x40" 
+          alt="Profile" 
+          className="profile-image" 
+        />
+        <span className="profile-username">Username</span>
+      </div>
+
+      {isOpen && (
+        <>
+          <ul className="menu">
+            <li onClick={() => handleSelection("Wallet")}>Wallet</li>
+            <li onClick={() => handleSelection("Profile")}>Profile</li>
+            <li onClick={() => handleSelection("History")}>History</li>
+            <li className="logout" onClick={() => handleSelection("Logout")}>
+              Logout
+            </li>
+          </ul>
+        </>
+      )}
     </div>
   );
 };
