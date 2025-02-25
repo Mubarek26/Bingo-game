@@ -1,58 +1,46 @@
-/* Basic Layout */
-.container {
-  max-width: 75rem; /* 1200px equivalent */
+/* Basic button styling */
+.btn {
+  padding: 10px 20px;
+  font-size: 16px;
+  margin-bottom: 10px;
+  cursor: pointer;
+  border: 1px solid #ccc;
+  background-color: #f0f0f0;
+  display: flex;
+  align-items: center; /* Align text and icon */
 }
 
-.row {
-  margin-bottom: 1.25rem; /* 20px equivalent */
+.btn:hover {
+  background-color: #ddd;
 }
 
-/* Navigation Styling */
-.nav-item {
-  margin-bottom: 1rem; /* 15px equivalent */
-}
-
-.nav-link {
-  display: block;
-  padding: 0.625rem; /* 10px equivalent */
-  text-align: center;
-  text-decoration: none;
-  color: #333;
-}
-
-.nav-item.active .nav-link {
+/* Styling for the selected button */
+.selected {
   background-color: #007bff;
   color: white;
-  border-radius: 0.3125rem; /* 5px equivalent */
+  border-color: #007bff;
 }
 
-/* Balance Section */
-h3 {
-  font-size: 1.5rem; /* 24px equivalent */
-  font-weight: bold;
-}
-
-/* Deposit Section */
-input.form-control {
-  width: 100%;
-  padding: 0.625rem; /* 10px equivalent */
-  font-size: 1rem; /* 16px equivalent */
-  margin-top: 0.625rem; /* 10px equivalent */
-}
-
-/* Bank Buttons */
-button.btn {
-  font-size: 1.1rem; /* 18px equivalent */
-  padding: 1rem; /* 16px equivalent */
-  border-radius: 0.3125rem; /* 5px equivalent */
-}
-
-button.btn-primary {
-  background-color: #007bff;
-  border: none;
-  color: white;
-}
-
-button.btn-primary:hover {
+.selected:hover {
   background-color: #0056b3;
+}
+
+/* Balance Section Styling */
+.balance-section {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 20px;
+}
+
+.balance-box {
+  padding: 20px;
+  background-color: #f9f9f9;
+  border-radius: 5px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  width: 45%;
+}
+
+.balance-box p {
+  margin: 0;
+  font-size: 16px;
 }

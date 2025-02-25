@@ -1,88 +1,74 @@
-import { useState } from "react";
-import { Link } from "react-router-dom";
-import "./Wallet.css"; // Import the new CSS file
+import React, { useState } from "react";
+import Deposit from "./Deposit";
+import Withdraw from "./Withdraw";
+import Transfer from "./Transfer";
+import History from "./History";
+import "./Wallet.css"; // Your custom CSS
 
-const Wallet = () => {
-  const [mainBalance, setMainBalance] = useState(1000);
-  const [bonusBalance, setBonusBalance] = useState(500);
-  const [depositAmount, setDepositAmount] = useState(0);
-  const [selectedButton, setSelectedButton] = useState("Wallet");
+export default function App() {
+  const [mainBalance, setMainBalance] = useState(0.0);
+  const [bonusBalance, setBonusBalance] = useState(0.0);
+  const [selected, setSelected] = useState("Deposit");
 
-  const handleDepositChange = (e) => {
-    setDepositAmount(e.target.value);
-  };
-
-  const handleBankSelection = (bank) => {
-    // Handle logic for selecting a bank
-    console.log(`Selected bank: ${bank}`);
+  const renderComponent = () => {
+    switch (selected) {
+      case "Deposit":
+        return <Deposit />;
+      case "Withdraw":
+        return <Withdraw  />;
+      case "Transfer":
+        return <Transfer />;
+      case "History":
+        return <History />;
+      default:
+        return <div>Please select an option</div>;
+    }
   };
 
   return (
-    <div className="container mt-4">
+    <div className="container">
       <div className="row">
-        {/* Left side with navigation buttons */}
-        <div className="col-md-3">
-          <ul className="list-unstyled">
-            {["Wallet", "Profile", "History", "Settings"].map((button) => (
-              <li
-                key={button}
-                className={`nav-item ${selectedButton === button ? "active" : ""}`}
-                onClick={() => setSelectedButton(button)}
-              >
-                <Link to={`/${button.toLowerCase()}`} className="nav-link">
-                  {button}
-                </Link>
-              </li>
-            ))}
-          </ul>
+        <div className="col-2 d-flex flex-column justify-content-center ">
+          <button
+            onClick={() => setSelected("Deposit")}
+            className={`btn ${selected === "Deposit" ? "selected" : ""}`}
+          >
+            <i className="fas fa-wallet"></i> Deposit
+          </button>
+          <button
+            onClick={() => setSelected("Withdraw")}
+            className={`btn ${selected === "Withdraw" ? "selected" : ""}`}
+          >
+            <i className="fas fa-arrow-down"></i> Withdraw
+          </button>
+          <button
+            onClick={() => setSelected("Transfer")}
+            className={`btn ${selected === "Transfer" ? "selected" : ""}`}
+          >
+            <i className="fas fa-exchange-alt"></i> Transfer
+          </button>
+          <button
+            onClick={() => setSelected("History")}
+            className={`btn ${selected === "History" ? "selected" : ""}`}
+          >
+            <i className="fas fa-history"></i> History
+          </button>
         </div>
 
-        {/* Right side with balance and deposit */}
-        <div className="col-md-9">
-          {/* Balance Section */}
-          <div className="row">
-            <div className="col-md-6">
-              <h3>Main Balance: ${mainBalance}</h3>
+        <div className="col-10">
+          <div className="balance-section">
+            <div className="balance-box">
+              <p>Main Balance</p>
+              <p>ETB {mainBalance.toFixed(2)} Birr</p>
             </div>
-            <div className="col-md-6">
-              <h3>Bonus Balance: ${bonusBalance}</h3>
-            </div>
-          </div>
-
-          {/* Deposit Field */}
-          <div className="mt-4">
-            <label htmlFor="depositAmount" className="form-label">
-              Enter Deposit Amount
-            </label>
-            <input
-              type="number"
-              id="depositAmount"
-              className="form-control"
-              value={depositAmount}
-              onChange={handleDepositChange}
-            />
-          </div>
-
-          {/* Bank Selection */}
-          <div className="mt-4">
-            <h4>Select a Bank</h4>
-            <div className="row">
-              {["Bank A", "Bank B", "Bank C", "Bank D", "Bank E", "Bank F"].map((bank, index) => (
-                <div key={index} className="col-12 col-md-4 mb-3">
-                  <button
-                    className="btn btn-primary w-100"
-                    onClick={() => handleBankSelection(bank)}
-                  >
-                    {bank}
-                  </button>
-                </div>
-              ))}
+            <div className="balance-box">
+              <p>Bonus Balance</p>
+              <p>ETB {bonusBalance.toFixed(2)} Birr</p>
             </div>
           </div>
+          {renderComponent()}
         </div>
       </div>
     </div>
   );
-};
-
-export default Wallet;
+}

@@ -9,7 +9,7 @@ function Navbar() {
     <>
     <BalanceButton />
       <nav className="navbar">
-        <h2 className="logo">AuthApp</h2>
+        <h2 className="logo">Bingo</h2>
         <div className="nav-links">
           <Link to="/Home" className="nav-link">
             Home
