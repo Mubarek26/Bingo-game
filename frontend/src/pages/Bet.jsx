@@ -15,7 +15,7 @@ const stakes = [
 
 const BettingInterface = () => {
     return (
-    <div className="container">
+    <div className="bet-container">
       <h1 className="title">Please Choose Your Stake</h1>
       <div className="table-container">
         <div className="table-header">

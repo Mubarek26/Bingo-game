@@ -1,0 +1,58 @@
+/* Basic Layout */
+.container {
+  max-width: 75rem; /* 1200px equivalent */
+}
+
+.row {
+  margin-bottom: 1.25rem; /* 20px equivalent */
+}
+
+/* Navigation Styling */
+.nav-item {
+  margin-bottom: 1rem; /* 15px equivalent */
+}
+
+.nav-link {
+  display: block;
+  padding: 0.625rem; /* 10px equivalent */
+  text-align: center;
+  text-decoration: none;
+  color: #333;
+}
+
+.nav-item.active .nav-link {
+  background-color: #007bff;
+  color: white;
+  border-radius: 0.3125rem; /* 5px equivalent */
+}
+
+/* Balance Section */
+h3 {
+  font-size: 1.5rem; /* 24px equivalent */
+  font-weight: bold;
+}
+
+/* Deposit Section */
+input.form-control {
+  width: 100%;
+  padding: 0.625rem; /* 10px equivalent */
+  font-size: 1rem; /* 16px equivalent */
+  margin-top: 0.625rem; /* 10px equivalent */
+}
+
+/* Bank Buttons */
+button.btn {
+  font-size: 1.1rem; /* 18px equivalent */
+  padding: 1rem; /* 16px equivalent */
+  border-radius: 0.3125rem; /* 5px equivalent */
+}
+
+button.btn-primary {
+  background-color: #007bff;
+  border: none;
+  color: white;
+}
+
+button.btn-primary:hover {
+  background-color: #0056b3;
+}
