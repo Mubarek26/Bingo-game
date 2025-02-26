@@ -1,10 +1,4 @@
-.balance-container {
-  width: 100%;
-  display: flex;
-  justify-content: flex-end; /* Align button to the left */
-  align-items: center;
-  padding: 0.25rem 1rem;
-}
+
 
 .balance-button {
   padding: 0.25rem 2.25rem;
