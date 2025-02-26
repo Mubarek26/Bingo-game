@@ -1,59 +1,31 @@
-// In-memory storage for cards
-//This module handles the business logic for managing cards (claiming, releasing, and querying).
-const cards = {}; // Key: stringified numbers (e.g., "5,23,67"), Value: { playerId, cardId, ... }
+// services/cardService.js
+const createCard = async (playerId, cardNumber, gameId, cards) => {
+  // Use cardNumber as the key (since it’s a single unique number 1-200)
+  const cardKey = cardNumber.toString();
 
-// Card Service
-const cardService = {
-  // Claim a card
-  claimCard(playerId, selectedNumbers, gameId) {
-    if (!playerId || !selectedNumbers || !gameId) {
-      throw new Error("Missing required fields");
+  // Check if cardNumber is already taken
+  if (cards[cardKey]) {
+    const existingCard = cards[cardKey];
+    if (existingCard.playerId !== playerId) {
+      throw new Error("Card already taken by another player");
     }
-    if (!Array.isArray(selectedNumbers) || selectedNumbers.length > 5) {
-      throw new Error("Invalid number of selections (max 5)");
-    }
-    if (selectedNumbers.some(num => num < 1 || num > 200)) {
-      throw new Error("Numbers must be between 1 and 200");
-    }
+    // Same player re-submitting, return existing cardId (idempotent)
+    return existingCard.cardId;
+  }
 
-    const cardKey = selectedNumbers.sort((a, b) => a - b).join(",");
-    if (cards[cardKey] && cards[cardKey].playerId !== playerId) {
-      throw new Error("This card is already taken by another player");
-    }
+  // Generate a unique cardId
+  const cardId = `${playerId}_${cardNumber}_${Date.now()}`;
 
-    const card = {
-      cardId: `card_${Date.now()}`,
-      playerId,
-      selectedNumbers: [...selectedNumbers], // Preserve original order
-      gameId,
-      cost: 10,
-      createdAt: new Date().toISOString(),
-    };
+  // Store the card in the shared cards object
+  cards[cardKey] = {
+    playerId,
+    cardNumber,
+    gameId,
+    cardId,
+    createdAt: Date.now(),
+  };
 
-    cards[cardKey] = card;
-    return card;
-  },
-
-  // Release a card
-  releaseCard(playerId, cardId) {
-    if (!playerId || !cardId) {
-      throw new Error("Missing playerId or cardId");
-    }
-
-    const card = Object.values(cards).find(c => c.cardId === cardId && c.playerId === playerId);
-    if (!card) {
-      throw new Error("Card not found or not owned by this player");
-    }
-
-    const cardKey = card.selectedNumbers.sort((a, b) => a - b).join(",");
-    delete cards[cardKey];
-    return { message: "Card released" };
-  },
-
-  // Get all cards for a player
-  getPlayerCards(playerId) {
-    return Object.values(cards).filter(card => card.playerId === playerId);
-  },
+  return cardId;
 };
 
-module.exports = cardService;
+module.exports = { createCard };
