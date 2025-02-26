@@ -6,6 +6,8 @@ import Bet from "./pages/Bet";
 import SelectCards from "./pages/SelectCards";
 import Bingoboard from "./pages/Bingoboard";
 import BingoCaller from "./pages/BingoCaller";
+import WinLossPopup from "./pages/WinLossPopup";
+
 import Bingopopup from "./pages/Bingopopup";
 import Login from "./pages/Login";
 import Signup from "./pages/Signup";
@@ -27,6 +29,7 @@ function App() {
         <Route path="/BetAmountPage" element={<Bet />} />
         <Route path="/SelectCards" element={<SelectCards />} />
         <Route path="/Bingoboard" element={<Bingoboard />} />
+        <Route path="/WinLossPopup" element={<WinLossPopup />} />
         <Route path="/Bingopopup" element={<Bingopopup />} />
         <Route path="/Bingocaller" element={<BingoCaller />} />
         <Route path="/Howtoplay" element={<HowToPlay />} />
