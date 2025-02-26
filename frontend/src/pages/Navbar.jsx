@@ -1,16 +1,27 @@
+import { useState } from "react";
 import { Link } from "react-router-dom";
 import "./Navbar.css";
 import Language from "./Language.jsx";
-import Profile from "./Profile.jsx";
+import Username from "./Username.jsx";
 import BalanceButton from "./BalanceButton.jsx";
 
 function Navbar() {
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+
   return (
     <>
-    <BalanceButton />
       <nav className="navbar">
-        <h2 className="logo">Bingo</h2>
-        <div className="nav-links">
+        <div className="logo">Bingo</div>
+
+        {/* Hamburger Menu Button (visible on mobile) */}
+        <div className="hamburger" onClick={() => setIsMenuOpen(!isMenuOpen)}>
+          <span className={isMenuOpen ? "bar open" : "bar"}></span>
+          <span className={isMenuOpen ? "bar open" : "bar"}></span>
+          <span className={isMenuOpen ? "bar open" : "bar"}></span>
+        </div>
+
+        {/* Navigation Links */}
+        <div className={`nav-links ${isMenuOpen ? "active" : ""}`}>
           <Link to="/Home" className="nav-link">
             Home
           </Link>
@@ -21,9 +32,12 @@ function Navbar() {
             How To Play
           </Link>
         </div>
+
+        {/* Profile Section */}
         <div className="profile">
-          <Language />
-          <Profile />
+            <BalanceButton />
+            <Language />
+            <Username />
         </div>
       </nav>
     </>
