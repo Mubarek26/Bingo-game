@@ -1,46 +1,47 @@
 import { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
+
 import "./Navbar.css";
 import Language from "./Language.jsx";
 import Username from "./Username.jsx";
-import BalanceButton from "./BalanceButton.jsx";
+import HamburgerMenu from "./HamburgerMenu.jsx";
 
 function Navbar() {
-  const [isMenuOpen, setIsMenuOpen] = useState(false);
-
   return (
-    <>
-      <nav className="navbar">
-        <div className="logo">Bingo</div>
+    <nav className="navbar">
+      <div className="logo">
+        <Link to="/Home" className="logo-link">
+          Bingo
+        </Link>
+      </div>
 
-        {/* Hamburger Menu Button (visible on mobile) */}
-        <div className="hamburger" onClick={() => setIsMenuOpen(!isMenuOpen)}>
-          <span className={isMenuOpen ? "bar open" : "bar"}></span>
-          <span className={isMenuOpen ? "bar open" : "bar"}></span>
-          <span className={isMenuOpen ? "bar open" : "bar"}></span>
-        </div>
+      {/* Navigation Links */}
+      <div className="navbar-links">
+        <NavLink to="/Home" className="navbar-item" activeClassName="active">
+          Home
+        </NavLink>
+        <NavLink to="/contact" className="navbar-item" activeClassName="active">
+          Contact
+        </NavLink>
+        <NavLink
+          to="/howtoplay"
+          className="navbar-item"
+          activeClassName="active"
+        >
+          How To Play
+        </NavLink>
+      </div>
 
-        {/* Navigation Links */}
-        <div className={`nav-links ${isMenuOpen ? "active" : ""}`}>
-          <Link to="/Home" className="nav-link">
-            Home
-          </Link>
-          <Link to="/contact" className="nav-link">
-            Contact
-          </Link>
-          <Link to="/howtoplay" className="nav-link">
-            How To Play
-          </Link>
-        </div>
+      {/* Profile Section */}
+      <div className="profile">
+        <Language />
+        <Username />
+      </div>
 
-        {/* Profile Section */}
-        <div className="profile">
-            <BalanceButton />
-            <Language />
-            <Username />
-        </div>
-      </nav>
-    </>
+      <div className="hamburger-container">
+        <HamburgerMenu />
+      </div>
+    </nav>
   );
 }
 

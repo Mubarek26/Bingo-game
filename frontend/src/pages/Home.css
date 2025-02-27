@@ -1,23 +1,36 @@
-/* src/pages/Home.css */
+/* Home container */
 .home-container {
-  text-align: center;
-  padding: 50px;
-}
-
-.home-container h1 {
-  font-size: 2.5em;
-  margin-bottom: 20px;
-}
-
-.home-container p {
-  font-size: 1.2em;
-  margin-bottom: 30px;
-}
-
-.home-links {
   display: flex;
+  flex-direction: column;
+  align-items: center;
   justify-content: center;
-  gap: 20px;
+  height: 100vh; /* Full viewport height */
+  text-align: center;
+  padding: 1.5rem;
+  background-color: #f8f9fa; /* Light background for better contrast */
 }
 
+/* Heading */
+.home-container h1 {
+  font-size: 2rem;
+  font-weight: bold;
+  margin-bottom: 0.5rem;
+  color: #333;
+}
 
+/* Paragraph */
+.home-container p {
+  font-size: 1.2rem;
+  color: #555;
+}
+
+/* Responsive adjustments */
+@media (max-width: 480px) {
+  .home-container h1 {
+    font-size: 1.5rem;
+  }
+
+  .home-container p {
+    font-size: 1rem;
+  }
+}
