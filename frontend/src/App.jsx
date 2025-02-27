@@ -12,13 +12,17 @@ import Signup from "./pages/Signup";
 import HowToPlay from "./pages/HowToPlay";
 import New from "./components/GameResult";
 import Wallet from "./pages/Wallet";
+import BetHistory from "./pages/BetHistory";
+import BalanceButton from "./pages/BalanceButton";
 
 function App() {
   const location = useLocation();
   const hideNavbar = location.pathname === "/" || location.pathname === "/signup";
+  const hideBalance = hideNavbar;
 
   return (
     <>
+      {!hideBalance && <BalanceButton />}
       {!hideNavbar && <Navbar />}
       <Routes>
         <Route path="/" element={<Login />} />
@@ -32,6 +36,7 @@ function App() {
         <Route path="/Howtoplay" element={<HowToPlay />} />
         <Route path="/GameResult" element={<New />} />
         <Route path="/wallet" element={<Wallet />} />
+        <Route path="/bet-history" element={<BetHistory />} />
       </Routes>
     </>
   );

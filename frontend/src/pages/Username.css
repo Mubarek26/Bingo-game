@@ -1,85 +1,123 @@
+/* Container */
 .profile-container {
-  padding: 0 1rem;
   position: relative;
-  display: flex;
-  align-items: center;
   cursor: pointer;
-  border-radius: 5px;
-  background-color: #fff;
-  transition: background 0.2s ease-in-out;
-  height: 2.5rem; /* Explicitly set a smaller height */
+  display: inline-block;
 }
 
-.profile-container:hover {
-  background: #f8f8f8;
-}
-
+/* Profile Header */
 .profile-header {
   display: flex;
   align-items: center;
-  gap: 6px;
+  gap: 8px;
+  padding: 8px 12px;
+  background: #fff;
+  border-radius: 8px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease-in-out;
+  width: 100%;
+  max-width: 200px; /* Added max width for mobile */
 }
 
+.profile-header:hover {
+  background: #f8f9fa;
+}
+
+/* Profile Image */
 .profile-image {
-  width: 28px;  /* Smaller image */
-  height: 28px;
+  width: 32px;
+  height: 32px;
   border-radius: 50%;
-  border: 1.5px solid #ddd;
+  border: 2px solid #007bff;
+  object-fit: cover;
 }
 
+/* Username Text */
 .profile-username {
-  font-size: 12px; /* Smaller font */
-  font-weight: 500;
+  font-weight: 600;
+  font-size: 14px;
   color: #333;
+  flex-grow: 1; /* Ensures the username text uses available space */
+  overflow: hidden;
+  text-overflow: ellipsis; /* To handle long usernames on mobile */
+  white-space: nowrap;
 }
 
+/* Dropdown Icon */
+.dropdown-icon {
+  transition: transform 0.2s ease-in-out;
+  color: #007bff;
+  margin-left: 8px; /* Add space between icon and username */
+}
+
+.rotate {
+  transform: rotate(180deg);
+}
+
+/* Dropdown Menu */
 .profile-menu {
   position: absolute;
-  top: 40px; /* Adjusted for new smaller profile height */
+  top: 100%;
   right: 0;
-  width: 150px;
   background: #fff;
-  box-shadow: 0px 3px 8px rgba(0, 0, 0, 0.1);
-  border-radius: 5px;
+  list-style: none;
+  padding: 0;
+  margin-top: 6px;
+  border-radius: 8px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
   overflow: hidden;
-  padding: 3px 0;
   opacity: 0;
   transform: translateY(-5px);
-  transition: opacity 0.15s ease-in-out, transform 0.15s ease-in-out;
+  visibility: hidden;
+  transition: all 0.3s ease-in-out;
+  width: 100%; /* Make dropdown menu fit within container */
+  max-width: 200px; /* Ensures dropdown doesn't overflow */
 }
 
-.profile-container .profile-menu.show {
+.profile-menu.show {
   opacity: 1;
   transform: translateY(0);
+  visibility: visible;
 }
 
+/* Dropdown Items */
 .profile-menu li {
-  list-style: none;
-  padding: 8px 10px; /* Reduced padding */
-  font-size: 12px;
-  font-weight: 500;
-  color: #333;
+  padding: 10px 16px;
+  font-size: 14px;
+  cursor: pointer;
   transition: background 0.2s ease-in-out;
-}
-
-.profile-menu li:hover {
-  background: #f2f2f2;
 }
 
 .profile-menu li a {
   text-decoration: none;
-  color: inherit;
-  display: block;
-  width: 100%;
+  color: #333;
+  font-weight: 500;
 }
 
+.profile-menu li:hover {
+  background: #f0f0f0;
+}
+
+/* Logout */
 .logout {
-  color: #d9534f;
+  color: #dc3545;
   font-weight: 600;
-  cursor: pointer;
-  padding: 8px;
 }
 
 .logout:hover {
-  background: #ffecec;
+  background: #ffe3e3;
+}
+
+/* Mobile Styles */
+@media (max-width: 576px) {
+  /* Adjust profile header padding for small screens */
+  .profile-header {
+    padding: 8px;
+  }
+
+  /* Adjust the dropdown menu size on small screens */
+  .profile-menu {
+    max-width: 100%;
+    width: 100%;
+  }
 }

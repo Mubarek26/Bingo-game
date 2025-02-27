@@ -1,35 +1,60 @@
 /* Navbar container */
 .navbar {
-  padding: 0 1rem;
+  padding: 1rem 2rem;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  background: #1b1f3b; /* Dark Blue */
-  color: #ffd700; /* Gold */
+  background-color: #1b1f3b;
 }
 
 /* Logo */
 .logo {
   font-size: 24px;
   font-weight: bold;
-}
-
-/* Navigation links */
-.nav-links {
-  display: flex;
-  gap: 20px;
-}
-
-.nav-link {
-  text-decoration: none;
   color: #ffd700;
-  font-size: 18px;
-  transition: color 0.3s ease-in-out;
 }
 
-.nav-link:hover {
-  color: #f2a900; /* Lighter Gold */
+
+
+/* This will apply the styles to the Link component */
+.logo .logo-link {
+  text-decoration: none; /* Removes the underline */
+  color: inherit; /* Inherits the color from the parent or specify a custom color */
 }
+
+
+/* Container for the navigation links */
+.navbar-links {
+  display: flex;
+  justify-content: center; /* Center the links horizontally */
+  align-items: center; /* Center the links vertically */
+  margin: 0;
+  padding: 0;
+  gap: 1.5rem; /* Space between links */
+}
+
+/* Individual navigation item */
+.navbar-item {
+  text-decoration: none; /* Removes the underline */
+  color: #fff; /* Default color */
+  font-size: 16px; /* Font size */
+  font-weight: 500; /* Medium font weight */
+  padding: 8px 12px; /* Padding around the text */
+  transition: color 0.3s ease, transform 0.3s ease; /* Smooth transition for hover */
+}
+
+/* Hover effect */
+.navbar-item:hover {
+  color: #ffd700; /* Green on hover */
+  transform: translateY(-2px); /* Slight lift effect */
+}
+
+/* Active link style (assuming you handle active class with React Router) */
+.navbar-item.active {
+  color: #ffd700; /* Green color for active state */
+  font-weight: bold; /* Bold text when active */
+}
+
 
 /* Profile section */
 .profile {
@@ -38,60 +63,19 @@
   gap: 15px;
 }
 
-/* Hamburger Menu (Hidden by default on large screens) */
-.hamburger {
+
+
+.hamburger-container {
   display: none;
-  flex-direction: column;
-  cursor: pointer;
 }
 
-.bar {
-  width: 25px;
-  height: 3px;
-  background: #ffd700;
-  margin: 4px 0;
-  transition: 0.4s;
-}
-
-/* Open state for hamburger bars */
-.bar.open:nth-child(1) {
-  transform: translateY(7px) rotate(45deg);
-}
-
-.bar.open:nth-child(2) {
-  opacity: 0;
-}
-
-.bar.open:nth-child(3) {
-  transform: translateY(-7px) rotate(-45deg);
-}
-
-/* Mobile Styles */
-@media (max-width: 768px) {
-  .nav-links {
+@media (max-width: 730px) {
+  .navbar-links, .profile {
     display: none;
-    flex-direction: column;
-    position: absolute;
-    top: 60px;
-    right: 0;
-    background: #1b1f3b;
-    width: 200px;
-    padding: 10px;
-    box-shadow: -3px 3px 10px rgba(0, 0, 0, 0.2);
-    border-radius: 10px;
   }
 
-  /* Show menu when active */
-  .nav-links.active {
-    display: flex;
-  }
-
-  .nav-link {
-    padding: 10px;
-    border-bottom: 1px solid rgba(255, 215, 0, 0.5);
-  }
-
-  .hamburger {
+  .hamburger-container {
     display: flex;
   }
 }
+

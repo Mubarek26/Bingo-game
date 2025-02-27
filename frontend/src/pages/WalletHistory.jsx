@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import "./History.css"; // Optional: Add custom styles for better appearance
+import "./WalletHistory.css"; // Optional: Add custom styles for better appearance
 
 const dummyData = [
   { type: "Deposit", date: "2025-02-25", amount: 500, status: "Completed" },
@@ -15,7 +15,7 @@ const dummyData = [
   // Add more dummy data to simulate large history
 ];
 
-const History = () => {
+const WalletHistory = () => {
   const [currentPage, setCurrentPage] = useState(1);
   const itemsPerPage = 5;
 
@@ -79,4 +79,4 @@ const History = () => {
   );
 };
 
-export default History;
+export default WalletHistory;
