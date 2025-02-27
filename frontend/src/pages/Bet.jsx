@@ -3,15 +3,15 @@ import { useNavigate } from "react-router-dom";
 import "./Bet.css";
 
 const stakes = [
-  { amount: 10, active: "0:39" },
-  { amount: 20, active: "0:45" },
-  { amount: 30, active: "None" },
-  { amount: 50, active: "None" },
-  { amount: 80, active: "None" },
-  { amount: 100, active: "None" },
-  { amount: 150, active: "0:45" },
-  { amount: 200, active: "None" },
-  { amount: 300, active: "0:44" },
+  { amount: 10 },
+  { amount: 20 },
+  { amount: 30 },
+  { amount: 50 },
+  { amount: 80 },
+  { amount: 100 },
+  { amount: 150 },
+  { amount: 200 },
+  { amount: 300 },
 ];
 
 const BettingInterface = () => {
@@ -20,12 +20,11 @@ const BettingInterface = () => {
   const navigate = useNavigate();
 
   const getUserId = () => {
-    let userId = localStorage.getItem('bingoUserId');
+    let userId = localStorage.getItem("bingoUserId");
     if (!userId) {
       userId = `user-${Date.now()}-${Math.floor(Math.random() * 10000)}`;
-      localStorage.setItem('bingoUserId', userId);
+      localStorage.setItem("bingoUserId", userId);
     }
-    return userId;
   };
 
   const userId = getUserId();
@@ -33,12 +32,11 @@ const BettingInterface = () => {
   useEffect(() => {
     const fetchRounds = async () => {
       try {
-        const response = await fetch('http://localhost:5000/rounds');
+        const response = await fetch("http://localhost:5000/rounds");
         const data = await response.json();
-        console.log('Fetched rounds:', data);
         setRoundData({ ...data });
       } catch (error) {
-        console.error('Error fetching rounds:', error);
+        console.error("Error fetching rounds:", error);
       }
     };
 
@@ -49,9 +47,9 @@ const BettingInterface = () => {
 
   const handleJoin = async (stake) => {
     try {
-      const response = await fetch('http://localhost:5000/join', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
+      const response = await fetch("http://localhost:5000/join", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ userId, stake }),
       });
       const data = await response.json();
@@ -71,7 +69,7 @@ const BettingInterface = () => {
           },
         }));
         if (!data.alreadyJoined) {
-          navigate('/selectcards', {
+          navigate("/selectcards", {
             state: {
               roundId: data.roundId,
               userId: data.userId,
@@ -82,16 +80,16 @@ const BettingInterface = () => {
         }
       }
     } catch (error) {
-      console.error('Error joining:', error);
+      console.error("Error joining:", error);
       setJoinStatus((prev) => ({
         ...prev,
-        [stake]: { error: 'Failed to join - network error' },
+        [stake]: { error: "Failed to join - network error" },
       }));
     }
   };
 
   return (
-    <div className="container">
+    <div className="bet-container">
       <h1 className="title">Please Choose Your Stake</h1>
       <div className="table-container">
         <div className="table-header">
@@ -101,15 +99,16 @@ const BettingInterface = () => {
           <span>Join</span>
         </div>
         {stakes.map((stake, index) => {
-          // Find the current "open" round for this stake
           const openRound = roundData[stake.amount]?.find(
-            r => r.status === 'open' && r.timeLeft > 0
+            (r) => r.status === "open" && r.timeLeft > 0
           ) || null;
           const isOpen = openRound !== null;
           const isJoined = openRound && openRound.players?.includes(userId);
           const displayTime = openRound
             ? `${openRound.timeLeft}s`
-            : roundData[stake.amount]?.length > 0 ? 'Active' : 'None';
+            : roundData[stake.amount]?.length > 0
+            ? "Active"
+            : "None";
           const displayWin = openRound && openRound.possibleWin > 0
             ? `${openRound.possibleWin} Birr`
             : "-";
@@ -125,7 +124,7 @@ const BettingInterface = () => {
               <button
                 className="join-button"
                 onClick={() => handleJoin(stake.amount)}
-                disabled={false} // Only disable if no open round
+                disabled={!isOpen}
               >
                 {isJoined ? "Joined" : "Join »"}
               </button>

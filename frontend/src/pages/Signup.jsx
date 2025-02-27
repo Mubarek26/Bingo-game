@@ -34,13 +34,13 @@ function Signup() {
   };
 
   return (
-    <div className="auth-container">
-      <div className="auth-card">
-        <h2 className="auth-title">Sign Up</h2>
+    <div className="container">
+      <div className="card">
+        <h2 className="title">Sign Up</h2>
         {error && <p className="error-message">{error}</p>}
-        <form onSubmit={handleSubmit} className="auth-form">
+        <form onSubmit={handleSubmit} className="form">
           <div className="form-group">
-            <label htmlFor="phone">Phone Number</label>
+            <label htmlFor="phone" className="label">Phone Number</label>
             <input
               type="tel"
               id="phone"
@@ -51,7 +51,7 @@ function Signup() {
             />
           </div>
           <div className="form-group">
-            <label htmlFor="password">Password</label>
+            <label htmlFor="password" className="label">Password</label>
             <input
               type="password"
               id="password"
@@ -62,7 +62,7 @@ function Signup() {
             />
           </div>
           <div className="form-group">
-            <label htmlFor="confirmPassword">Confirm Password</label>
+            <label htmlFor="confirmPassword" className="label">Confirm Password</label>
             <input
               type="password"
               id="confirmPassword"
@@ -73,7 +73,7 @@ function Signup() {
             />
           </div>
           <div className="form-group">
-            <label htmlFor="otp">OTP</label>
+            <label htmlFor="otp" className="label">OTP</label>
             <input
               type="text"
               id="otp"
@@ -84,11 +84,11 @@ function Signup() {
               required
             />
           </div>
-          <button type="submit" className="auth-button" >
+          <button type="submit" className="button">
             Sign Up
           </button>
-          <p className="auth-link">
-            Already have an account? <Link to="/login">Login</Link>
+          <p className="link">
+            Already have an account? <Link to="/" className="nav-link">Login</Link>
           </p>
         </form>
       </div>

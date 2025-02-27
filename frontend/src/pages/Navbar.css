@@ -1,127 +1,97 @@
-/* Navbar.css */
+/* Navbar container */
 .navbar {
+  padding: 0 1rem;
   display: flex;
+  align-items: center;
   justify-content: space-between;
-  align-items: center;
-  padding: 0.5rem 2rem;
-  background: linear-gradient(90deg, #4a0080, #8a2be2); /* Purple gradient inspired by the image */
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
-  position: sticky;
-  border-radius: 0 0 10px 10px; /* Slight curve at the bottom like in the image */
-  margin: 10px;
+  background: #1b1f3b; /* Dark Blue */
+  color: #ffd700; /* Gold */
 }
 
+/* Logo */
 .logo {
-  color: #ffffff;
-  font-size: 1.5rem;
-  font-weight: 700;
-  font-family: 'Arial', sans-serif;
-  letter-spacing: 1px;
-  margin: 0;
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
+  font-size: 24px;
+  font-weight: bold;
 }
 
-/* Simulate the logo circle with a pseudo-element or background */
-.logo::before {
-  content: '';
-  width: 30px;
-  height: 30px;
-  background: linear-gradient(45deg, #f1c40f, #f39c12); /* Yellow gradient for circular logo */
-  border-radius: 50%;
-  display: inline-block;
-  margin-right: 0.5rem;
-}
-
+/* Navigation links */
 .nav-links {
   display: flex;
-  gap: 1.5rem;
-  align-items: center;
+  gap: 20px;
 }
 
 .nav-link {
-  color: #ffffff;
   text-decoration: none;
-  font-size: 1.1rem;
-  font-weight: 500;
-  padding: 0.5rem 1rem;
-  transition: color 0.3s ease, transform 0.3s ease;
-  position: relative;
-  text-transform: uppercase; /* Matches the uppercase text in the image */
+  color: #ffd700;
+  font-size: 18px;
+  transition: color 0.3s ease-in-out;
 }
 
 .nav-link:hover {
-  color: #f1c40f; /* Yellow hover effect inspired by logo */
-  transform: translateY(-2px);
+  color: #f2a900; /* Lighter Gold */
 }
 
-/* Underline effect similar to the image's subtle line */
-.nav-link::after {
-  content: '';
-  position: absolute;
-  width: 0;
-  height: 2px;
-  bottom: -5px;
-  left: 50%;
-  background-color: #f1c40f;
-  transition: width 0.3s ease, left 0.3s ease;
-}
-
-.nav-link:hover::after {
-  width: 100%;
-  left: 0;
-}
-
+/* Profile section */
 .profile {
   display: flex;
-  color: #fff;
-  gap: 1.5rem;
-}
-
-/* User profile section (not in original JSX but inspired by image) */
-.user-section {
-  display: flex;
   align-items: center;
-  gap: 1rem;
+  gap: 15px;
 }
 
-.user-section .globe {
-  font-size: 1.2rem;
-  color: #ffffff;
-  margin-right: 0.5rem;
-}
-
-.user-section span {
-  color: #ffffff;
-  font-size: 1rem;
+/* Hamburger Menu (Hidden by default on large screens) */
+.hamburger {
+  display: none;
+  flex-direction: column;
   cursor: pointer;
-  transition: color 0.3s ease;
 }
 
-.user-section span:hover {
-  color: #f1c40f;
+.bar {
+  width: 25px;
+  height: 3px;
+  background: #ffd700;
+  margin: 4px 0;
+  transition: 0.4s;
 }
 
+/* Open state for hamburger bars */
+.bar.open:nth-child(1) {
+  transform: translateY(7px) rotate(45deg);
+}
 
+.bar.open:nth-child(2) {
+  opacity: 0;
+}
 
+.bar.open:nth-child(3) {
+  transform: translateY(-7px) rotate(-45deg);
+}
 
-
-/* Responsive design */
+/* Mobile Styles */
 @media (max-width: 768px) {
-  .navbar {
-    flex-direction: column;
-    padding: 1rem;
-  }
-
   .nav-links {
-    margin-top: 1rem;
-    gap: 1rem;
-    flex-wrap: wrap;
-    justify-content: center;
+    display: none;
+    flex-direction: column;
+    position: absolute;
+    top: 60px;
+    right: 0;
+    background: #1b1f3b;
+    width: 200px;
+    padding: 10px;
+    box-shadow: -3px 3px 10px rgba(0, 0, 0, 0.2);
+    border-radius: 10px;
   }
 
-  .user-section {
-    margin-top: 1rem;
+  /* Show menu when active */
+  .nav-links.active {
+    display: flex;
+  }
+
+  .nav-link {
+    padding: 10px;
+    border-bottom: 1px solid rgba(255, 215, 0, 0.5);
+  }
+
+  .hamburger {
+    display: flex;
   }
 }

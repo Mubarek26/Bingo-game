@@ -2,7 +2,7 @@
 .language-container {
   display: flex;
   justify-content: flex-end;
-  padding: 1rem;
+  padding: 1.5rem;
 }
 
 /* Styling for the language select element */

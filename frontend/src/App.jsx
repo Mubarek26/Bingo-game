@@ -11,6 +11,7 @@ import Login from "./pages/Login";
 import Signup from "./pages/Signup";
 import HowToPlay from "./pages/HowToPlay";
 import New from "./components/GameResult";
+import Wallet from "./pages/Wallet";
 
 function App() {
   const location = useLocation();
@@ -30,6 +31,7 @@ function App() {
         <Route path="/Bingocaller" element={<BingoCaller />} />
         <Route path="/Howtoplay" element={<HowToPlay />} />
         <Route path="/GameResult" element={<New />} />
+        <Route path="/wallet" element={<Wallet />} />
       </Routes>
     </>
   );

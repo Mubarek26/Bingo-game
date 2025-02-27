@@ -26,13 +26,13 @@ function Login() {
   };
 
   return (
-    <div className="auth-container">
-      <div className="auth-card">
-        <h2 className="auth-title">Login</h2>
+    <div className="container">
+      <div className="card">
+        <h2 className="title">Login</h2>
         {error && <p className="error-message">{error}</p>}
-        <form onSubmit={handleSubmit} className="auth-form">
+        <form onSubmit={handleSubmit} className="form">
           <div className="form-group">
-            <label htmlFor="phone" className="form-label">Phone Number</label>
+            <label htmlFor="phone" className="label">Phone Number</label>
             <input
               type="tel"
               id="phone"
@@ -42,7 +42,7 @@ function Login() {
             />
           </div>
           <div className="form-group">
-            <label htmlFor="password" className="form-label">Password</label>
+            <label htmlFor="password" className="label">Password</label>
             <input
               type="password"
               id="password"
@@ -51,8 +51,8 @@ function Login() {
               placeholder="Enter your password"
             />
           </div>
-          <button type="submit" className="auth-button">Login</button>
-          <p className="auth-link">
+          <button type="submit" className="button">Login</button>
+          <p className="link">
             Don't have an account? <span onClick={() => navigate('/signup')} className="nav-link">Sign Up</span>
           </p>
         </form>

@@ -1,0 +1,54 @@
+/* Basic button styling */
+
+.container {
+  padding: 0 3rem;
+  height: 100vh;
+}
+.btn {
+  padding: 10px 20px;
+  margin-right: 0.5rem;
+  font-size: 16px;
+  margin-bottom: 10px;
+  cursor: pointer;
+  border: 1px solid #ccc;
+  background-color: #f0f0f0;
+  display: flex;
+  align-items: center; /* Align text and icon */
+}
+
+.btn:hover {
+  background-color: #ddd;
+}
+
+/* Styling for the selected button */
+.selected {
+  background-color: #007bff;
+  color: white;
+  border-color: #007bff;
+}
+
+.selected:hover {
+  background-color: #0056b3;
+  color: #fff;
+}
+
+/* Balance Section Styling */
+.balance-section {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 20px;
+}
+
+.balance-box {
+  margin-top: 5px;
+  padding: 10px;
+  background-color: #f9f9f9;
+  border-radius: 5px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  width: 49%;
+}
+
+.balance-box p {
+  margin: 0;
+  font-size: 16px;
+}
