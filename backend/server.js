@@ -4,7 +4,7 @@ const path = require('path');
 const bingoRoutes = require('./routes/cardGenerateRoute'); // Your existing route
 const cardRoutes = require("./routes/cardRoutes"); // New modularized card routes
 const corsConfig = require('./config/corsConfig');
-
+const betRoutes=require('./routes/betRoute');
 const app = express();
 const PORT = process.env.PORT || 5000;
 
@@ -35,6 +35,9 @@ app.get('/api/game', (req, res) => {
   res.json(gameState);
 });
 
+
+
+app.use('/', betRoutes);
 // Catch-all route for React app (MUST BE LAST)
 app.get('*', (req, res) => {
   res.sendFile(path.join(__dirname, 'frontend', 'dist', 'index.html'));
