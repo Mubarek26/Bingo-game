@@ -112,3 +112,24 @@ body {
     max-width: 400px;
   }
 }
+.cell {
+  padding: 10px;
+  border: 1px solid #ccc;
+  cursor: pointer;
+  text-align: center;
+}
+
+.cell.selected {
+  background-color: #4caf50; /* Green for player’s own selection */
+  color: white;
+}
+
+.cell.taken {
+  background-color: #f44336; /* Red for cards taken by others */
+  color: white;
+}
+
+.cell.disabled {
+  cursor: not-allowed;
+  opacity: 0.5;
+}
