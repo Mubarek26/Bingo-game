@@ -1,5 +1,5 @@
 /* Home container */
-.home-container {
+.homeContainer {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -11,7 +11,7 @@
 }
 
 /* Heading */
-.home-container h1 {
+.homeContainer h1 {
   font-size: 2rem;
   font-weight: bold;
   margin-bottom: 0.5rem;
@@ -19,18 +19,18 @@
 }
 
 /* Paragraph */
-.home-container p {
+.homeContainer p {
   font-size: 1.2rem;
   color: #555;
 }
 
 /* Responsive adjustments */
 @media (max-width: 480px) {
-  .home-container h1 {
+  .homeContainer h1 {
     font-size: 1.5rem;
   }
 
-  .home-container p {
+  .homeContainer p {
     font-size: 1rem;
   }
 }

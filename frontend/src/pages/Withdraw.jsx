@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import "./Withdraw.css"
+import styles from './Withdraw.module.css';  // Import the CSS module
 
 const Withdraw = () => {
   const [amount, setAmount] = useState('');
@@ -24,11 +24,11 @@ const Withdraw = () => {
   };
 
   return (
-    <div className="withdraw-container">
+    <div className={styles.withdrawContainer}>
       <h2>Withdraw Funds</h2>
 
       <form onSubmit={handleWithdraw}>
-        <div className="form-group">
+        <div className={styles.formGroup}>
           <label htmlFor="amount">Amount</label>
           <input
             type="number"
@@ -36,15 +36,15 @@ const Withdraw = () => {
             value={amount}
             onChange={(e) => setAmount(e.target.value)}
             placeholder="Enter amount"
-            className="input-field"
+            className={styles.inputField}
             min="0"
             required
           />
         </div>
 
-        <div className="form-group">
+        <div className={styles.formGroup}>
           <label>Select Bank</label>
-          <div className="radio-options">
+          <div className={styles.radioOptions}>
             <label>
               <input
                 type="radio"
@@ -68,7 +68,7 @@ const Withdraw = () => {
           </div>
         </div>
 
-        <button type="submit" className="withdraw-button">
+        <button type="submit" className={styles.withdrawButton}>
           Withdraw
         </button>
       </form>

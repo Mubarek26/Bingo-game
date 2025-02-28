@@ -1,4 +1,4 @@
-.deposit-container {
+.depositContainer {
   background-color: #f0f0f0;
   padding: 2rem;
   font-family: Arial, sans-serif;
@@ -6,13 +6,13 @@
   margin: 0 auto;
 }
 
-.balance-section {
+.balanceSection {
   display: flex;
   justify-content: space-between;
   margin-bottom: 1.25rem; /* 20px */
 }
 
-.balance-box {
+.balanceBox {
   background-color: #fff;
   padding: 1rem; /* 15px */
   border-radius: 0.3125rem; /* 5px */
@@ -21,22 +21,22 @@
   box-shadow: 0 0.125rem 0.3125rem rgba(0, 0, 0, 0.1); /* 2px 5px */
 }
 
-.balance-box p:first-child {
+.balanceBox p:first-child {
   color: #666;
   margin-bottom: 0.3125rem; /* 5px */
 }
 
-.balance-box p:last-child {
+.balanceBox p:last-child {
   font-size: 1.2rem; /* 1.2em */
   font-weight: bold;
   color: #333;
 }
 
-.deposit-section {
+.depositSection {
   margin-bottom: 1.25rem; /* 20px */
 }
 
-.action-button {
+.actionButton {
   background-color: #007bff;
   color: white;
   border: none;
@@ -47,15 +47,15 @@
   font-size: 0.875rem; /* 14px */
 }
 
-.action-button:hover {
+.actionButton:hover {
   background-color: #0056b3;
 }
 
-.deposit-input {
+.depositInput {
   margin-top: 0.625rem; /* 10px */
 }
 
-.deposit-input input {
+.depositInput input {
   width: 100%;
   padding: 0.625rem; /* 10px */
   font-size: 1rem; /* 16px */
@@ -66,18 +66,18 @@
 }
 
 /* Styling the placeholder */
-.deposit-input input::placeholder {
+.depositInput input::placeholder {
   color: #888; /* Placeholder color */
   font-style: italic; /* Italicized text */
 }
 
-.transaction-section {
+.transactionSection {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 0.625rem; /* 10px */
 }
 
-.transaction-button {
+.transactionButton {
   background-color: #fff;
   border: 0.0625rem solid #ccc; /* 1px */
   padding: 0.9375rem; /* 15px */
@@ -90,11 +90,11 @@
   box-shadow: 0 0.125rem 0.3125rem rgba(0, 0, 0, 0.1); /* 2px 5px */
 }
 
-.transaction-button.featured {
+.transactionButton.featured {
   background-color: #e9ecef;
   font-weight: bold;
 }
 
-.transaction-button:hover {
+.transactionButton:hover {
   background-color: #f8f9fa;
 }

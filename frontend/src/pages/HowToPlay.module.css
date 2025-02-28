@@ -1,5 +1,5 @@
 /* Container for the entire page */
-.how-to-play-container {
+.howToPlayContainer {
   width: 80%;
   margin: 20px auto;
   font-family: Arial, sans-serif;
@@ -10,7 +10,7 @@
 }
 
 /* Title of the page */
-.page-title {
+.pageTitle {
   text-align: center;
   font-size: 2.5rem;
   color: #333;
@@ -36,7 +36,7 @@
 }
 
 /* Section title for instructions */
-.section-title {
+.sectionTitle {
   font-size: 1.8rem;
   color: #007bff;
   margin-bottom: 10px;

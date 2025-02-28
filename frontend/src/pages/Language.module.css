@@ -1,0 +1,57 @@
+/* Base Styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Nunito', sans-serif;
+  background-color: #f5f5f5;
+  color: #333;
+  line-height: 1.6;
+}
+
+/* Language Container */
+.languageContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+select {
+  padding: 0.75rem 1rem;
+  font-size: 1rem;
+  font-weight: 500;
+  border: 1px solid #ccc;
+  border-radius: 0.5rem;
+  background-color: white;
+  color: #333;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+select:focus {
+  outline: none;
+  border-color: #008080; /* Teal border color on focus */
+}
+
+option {
+  padding: 0.5rem;
+}
+
+select:hover {
+  border-color: #008080; /* Hover effect to indicate interactivity */
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .languageContainer {
+    margin-top: 1rem;
+  }
+
+  select {
+    width: 100%;
+    font-size: 0.9rem;
+  }
+}

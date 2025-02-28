@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
-import "./Username.css";
+import styles from './Username.module.css';  // Import the CSS Module file
 
 const Username = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -11,17 +11,17 @@ const Username = () => {
   };
 
   return (
-    <div className="profile-container" onClick={toggleDropdown}>
-      <div className="profile-header">
+    <div className={styles.profileContainer} onClick={toggleDropdown}>
+      <div className={styles.profileHeader}>
         <img
           src="https://placehold.co/32x32"
           alt="Profile"
-          className="profile-image"
+          className={styles.profileImage}
         />
-        <span className="profile-username">John Doe</span>
+        <span className={styles.profileUsername}>John Doe</span>
         {/* Sleek Dropdown Icon */}
         <svg
-          className={`dropdown-icon ${isOpen ? "rotate" : ""}`}
+          className={`${styles.dropdownIcon} ${isOpen ? styles.rotate : ""}`}
           xmlns="http://www.w3.org/2000/svg"
           viewBox="0 0 24 24"
           width="16"
@@ -31,14 +31,14 @@ const Username = () => {
         </svg>
       </div>
 
-      <ul className={`profile-menu ${isOpen ? "show" : ""}`}>
+      <ul className={`${styles.profileMenu} ${isOpen ? styles.show : ""}`}>
         <li>
           <Link to="/wallet">Wallet</Link>
         </li>
         <li>
-        <Link to="/bet-history">History</Link>
+          <Link to="/bet-history">History</Link>
         </li>
-        <li className="logout" onClick={() => alert("Logging out...")}>
+        <li className={styles.logout} onClick={() => alert("Logging out...")}>
           Logout
         </li>
       </ul>

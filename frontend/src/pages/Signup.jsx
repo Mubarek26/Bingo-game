@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import "./Signup.css";
+import style from "./Signup.module.css";
 
 function Signup() {
   const [phone, setPhone] = useState("");
@@ -27,20 +27,18 @@ function Signup() {
     } else {
       setError("");
       console.log("Signing up with:", { phone, password, otp });
-      // Add your sign-up logic here (e.g., API call for phone-based auth with OTP)
-      // Redirect or handle successful sign-up
     }
     navigate("./");
   };
 
   return (
-    <div className="container">
-      <div className="card">
-        <h2 className="title">Sign Up</h2>
-        {error && <p className="error-message">{error}</p>}
-        <form onSubmit={handleSubmit} className="form">
-          <div className="form-group">
-            <label htmlFor="phone" className="label">Phone Number</label>
+    <div className={style.container}>
+      <div className={style.card}>
+        <h2 className={style.title}>Sign Up</h2>
+        {error && <p className={style.errorMessage}>{error}</p>}
+        <form onSubmit={handleSubmit} className={style.form}>
+          <div className={style.formGroup}>
+            <label htmlFor="phone" className={style.label}>Phone Number</label>
             <input
               type="tel"
               id="phone"
@@ -50,8 +48,8 @@ function Signup() {
               required
             />
           </div>
-          <div className="form-group">
-            <label htmlFor="password" className="label">Password</label>
+          <div className={style.formGroup}>
+            <label htmlFor="password" className={style.label}>Password</label>
             <input
               type="password"
               id="password"
@@ -61,8 +59,8 @@ function Signup() {
               required
             />
           </div>
-          <div className="form-group">
-            <label htmlFor="confirmPassword" className="label">Confirm Password</label>
+          <div className={style.formGroup}>
+            <label htmlFor="confirmPassword" className={style.label}>Confirm Password</label>
             <input
               type="password"
               id="confirmPassword"
@@ -72,8 +70,8 @@ function Signup() {
               required
             />
           </div>
-          <div className="form-group">
-            <label htmlFor="otp" className="label">OTP</label>
+          <div className={style.formGroup}>
+            <label htmlFor="otp" className={style.label}>OTP</label>
             <input
               type="text"
               id="otp"
@@ -84,11 +82,11 @@ function Signup() {
               required
             />
           </div>
-          <button type="submit" className="button">
+          <button type="submit" className={style.button}>
             Sign Up
           </button>
-          <p className="link">
-            Already have an account? <Link to="/" className="nav-link">Login</Link>
+          <p className={style.link}>
+            Already have an account? <Link to="/" className={style.navLink}>Login</Link>
           </p>
         </form>
       </div>

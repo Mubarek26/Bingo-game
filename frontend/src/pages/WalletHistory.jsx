@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import "./WalletHistory.css"; // Optional: Add custom styles for better appearance
+import styles from "./WalletHistory.module.css"; // Import styles as a module
 
 const dummyData = [
   { type: "Deposit", date: "2025-02-25", amount: 500, status: "Completed" },
@@ -12,7 +12,6 @@ const dummyData = [
   { type: "Withdraw", date: "2025-02-18", amount: 250, status: "Declined" },
   { type: "Deposit", date: "2025-02-17", amount: 800, status: "Completed" },
   { type: "Withdraw", date: "2025-02-16", amount: 100, status: "Completed" },
-  // Add more dummy data to simulate large history
 ];
 
 const WalletHistory = () => {
@@ -31,10 +30,10 @@ const WalletHistory = () => {
   };
 
   return (
-    <div className="history-container">
+    <div className={styles.historyContainer}>
       <h2>Transaction History</h2>
 
-      <table className="history-table">
+      <table className={styles.historyTable}>
         <thead>
           <tr>
             <th>Type</th>
@@ -47,13 +46,13 @@ const WalletHistory = () => {
           {currentItems.map((transaction, index) => (
             <tr key={index}>
               <td
-                className={`type ${transaction.type === "Withdraw" ? "withdraw" : "deposit"}`}
+                className={`${styles.type} ${transaction.type === "Withdraw" ? styles.withdraw : styles.deposit}`}
               >
                 {transaction.type}
               </td>
               <td>{transaction.date}</td>
               <td>{transaction.amount} ETB</td>
-              <td className={`status ${transaction.status === "Completed" ? "completed" : "declined"}`}>
+              <td className={`${styles.status} ${transaction.status === "Completed" ? styles.completed : styles.declined}`}>
                 {transaction.status}
               </td>
             </tr>
@@ -62,13 +61,13 @@ const WalletHistory = () => {
       </table>
 
       {/* Pagination */}
-      <div className="pagination">
+      <div className={styles.pagination}>
         <button onClick={() => handlePageChange(1)}>&lt;</button>
         {[...Array(totalPages).keys()].map((page) => (
           <button
             key={page}
             onClick={() => handlePageChange(page + 1)}
-            className={currentPage === page + 1 ? "active" : ""}
+            className={currentPage === page + 1 ? styles.active : ""}
           >
             {page + 1}
           </button>

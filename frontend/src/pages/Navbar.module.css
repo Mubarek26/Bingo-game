@@ -14,17 +14,14 @@
   color: #ffd700;
 }
 
-
-
 /* This will apply the styles to the Link component */
-.logo .logo-link {
+.logoLink {
   text-decoration: none; /* Removes the underline */
   color: inherit; /* Inherits the color from the parent or specify a custom color */
 }
 
-
 /* Container for the navigation links */
-.navbar-links {
+.navbarLinks {
   display: flex;
   justify-content: center; /* Center the links horizontally */
   align-items: center; /* Center the links vertically */
@@ -34,7 +31,7 @@
 }
 
 /* Individual navigation item */
-.navbar-item {
+.navbarItem {
   text-decoration: none; /* Removes the underline */
   color: #fff; /* Default color */
   font-size: 16px; /* Font size */
@@ -44,17 +41,16 @@
 }
 
 /* Hover effect */
-.navbar-item:hover {
+.navbarItem:hover {
   color: #ffd700; /* Green on hover */
   transform: translateY(-2px); /* Slight lift effect */
 }
 
-/* Active link style (assuming you handle active class with React Router) */
-.navbar-item.active {
+/* Active link style */
+.active {
   color: #ffd700; /* Green color for active state */
   font-weight: bold; /* Bold text when active */
 }
-
 
 /* Profile section */
 .profile {
@@ -63,19 +59,16 @@
   gap: 15px;
 }
 
-
-
-.hamburger-container {
+.hamburgerContainer {
   display: none;
 }
 
 @media (max-width: 730px) {
-  .navbar-links, .profile {
+  .navbarLinks, .profile {
     display: none;
   }
 
-  .hamburger-container {
+  .hamburgerContainer {
     display: flex;
   }
 }
-
