@@ -1,0 +1,107 @@
+/* Login.module.css */
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background-color: #f4f7fa; /* Light gray background */
+  padding: 20px;
+}
+
+.card {
+  background: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  padding: 40px;
+  width: 100%;
+  max-width: 400px;
+  text-align: center;
+}
+
+.title {
+  font-size: 28px;
+  font-weight: 600;
+  color: #1a202c; /* Dark gray */
+  margin-bottom: 20px;
+}
+
+.errorMessage {
+  color: #e53e3e; /* Red for errors */
+  font-size: 14px;
+  margin-bottom: 15px;
+  background: #fff5f5;
+  padding: 8px;
+  border-radius: 4px;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.formGroup {
+  text-align: left;
+}
+
+.label {
+  display: block;
+  font-size: 14px;
+  font-weight: 500;
+  color: #4a5568; /* Medium gray */
+  margin-bottom: 6px;
+}
+
+input {
+  width: 100%;
+  padding: 12px 16px;
+  font-size: 16px;
+  border: 1px solid #e2e8f0; /* Light gray border */
+  border-radius: 8px;
+  outline: none;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+input:focus {
+  border-color: #3182ce; /* Blue focus ring */
+  box-shadow: 0 0 0 3px rgba(49, 130, 206, 0.2);
+}
+
+.button {
+  background-color: #3182ce; /* Professional blue */
+  color: #ffffff;
+  padding: 12px;
+  font-size: 16px;
+  font-weight: 500;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.button:hover {
+  background-color: #2b6cb0; /* Darker blue on hover */
+  transform: translateY(-2px);
+}
+
+.button:active {
+  transform: translateY(0);
+}
+
+.link {
+  font-size: 14px;
+  color: #718096; /* Light gray */
+  margin-top: 20px;
+}
+
+.navLink {
+  color: #3182ce; /* Blue link */
+  font-weight: 500;
+  cursor: pointer;
+  transition: color 0.3s ease;
+}
+
+.navLink:hover {
+  color: #2b6cb0;
+  text-decoration: underline;
+}

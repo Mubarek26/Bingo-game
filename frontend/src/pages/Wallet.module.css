@@ -1,0 +1,105 @@
+/* Base Styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Nunito', sans-serif;
+  background-color: #f5f5f5;
+  color: #333;
+  line-height: 1.6;
+}
+
+/* Container */
+.container {
+  max-width: 1200px;
+  margin: 2rem auto;
+  padding: 1.5rem;
+  background-color: #ffffff;
+  border-radius: 0.5rem;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Row for Balance Display */
+.row {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 2rem;
+}
+
+.balanceBox {
+  background-color: #f1f1f1;
+  padding: 1rem;
+  border-radius: 0.5rem;
+  width: 48%;
+  text-align: center;
+}
+
+.balanceBox p {
+  font-size: 1.125rem;
+  font-weight: 600;
+  color: #333;
+}
+
+.balanceBox p:nth-child(2) {
+  font-size: 1.25rem;
+  color: #008080; /* Teal accent for balances */
+}
+
+/* Button Group */
+.dFlex {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 2rem;
+}
+
+.btn {
+  background-color: #008080; /* Teal background */
+  color: white;
+  padding: 0.75rem 1.5rem;
+  border: none;
+  border-radius: 0.5rem;
+  font-size: 1rem;
+  font-weight: 500;
+  cursor: pointer;
+  width: 22%;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  text-align: center;
+}
+
+.btn:hover {
+  background-color: #00aead; /* Lighter teal on hover */
+  transform: scale(1.05); /* Slight scale for interactivity */
+}
+
+.selected {
+  background-color: #004d40; /* Darker teal for selected button */
+}
+
+.selected:hover {
+  background-color: #00796b; /* Lighter dark teal on hover */
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .row {
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .balanceBox {
+    width: 100%;
+  }
+
+  .dFlex {
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .btn {
+    width: 100%;
+    font-size: 0.9rem;
+  }
+}

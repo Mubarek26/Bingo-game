@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import './Login.css';
+import style from './Login.module.css';
 
 function Login() {
   const [phone, setPhone] = useState('');
@@ -26,13 +26,13 @@ function Login() {
   };
 
   return (
-    <div className="container">
-      <div className="card">
-        <h2 className="title">Login</h2>
-        {error && <p className="error-message">{error}</p>}
-        <form onSubmit={handleSubmit} className="form">
-          <div className="form-group">
-            <label htmlFor="phone" className="label">Phone Number</label>
+    <div className={style.container}>
+      <div className={style.card}>
+        <h2 className={style.title}>Login</h2>
+        {error && <p className={style.errorMessage}>{error}</p>}
+        <form onSubmit={handleSubmit} className={style.form}>
+          <div className={style.formGroup}>
+            <label htmlFor="phone" className={style.label}>Phone Number</label>
             <input
               type="tel"
               id="phone"
@@ -41,8 +41,8 @@ function Login() {
               placeholder="Enter your phone (e.g., +1234567890)"
             />
           </div>
-          <div className="form-group">
-            <label htmlFor="password" className="label">Password</label>
+          <div className={style.formGroup}>
+            <label htmlFor="password" className={style.label}>Password</label>
             <input
               type="password"
               id="password"
@@ -51,9 +51,9 @@ function Login() {
               placeholder="Enter your password"
             />
           </div>
-          <button type="submit" className="button">Login</button>
-          <p className="link">
-            Don't have an account? <span onClick={() => navigate('/signup')} className="nav-link">Sign Up</span>
+          <button type="submit" className={style.button}>Login</button>
+          <p className={style.link}>
+            Don't have an account? <span onClick={() => navigate('/signup')} className={style.navLink}>Sign Up</span>
           </p>
         </form>
       </div>

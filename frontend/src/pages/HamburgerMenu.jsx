@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
-import './HamburgerMenu.css'; 
 import { Link } from 'react-router-dom';
+import styles from './HamburgerMenu.module.css'; // Import the CSS Module
 
 const HamburgerMenu = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -17,55 +17,55 @@ const HamburgerMenu = () => {
   };
 
   return (
-    <div className="hamburger-menu">
+    <div className={styles.hamburgerMenu}>
       {/* Hamburger Icon/Button */}
-      <button className="hamburger-button" onClick={toggleMenu}>
+      <button className={styles.hamburgerButton} onClick={toggleMenu}>
         ☰
       </button>
 
       {/* Sidebar Menu */}
-      <div className={`sidebar ${isOpen ? 'open' : ''}`}>
+      <div className={`${styles.sidebar} ${isOpen ? styles.sidebarOpen : ''}`}>
         {/* User Profile Section */}
-        <div className="profile-section">
-          <img src="path-to-profile-icon.png" alt="Profile" className="profile-icon" />
-          <p className="user-name">User</p>
+        <div className={styles.profileSection}>
+          <img src="path-to-profile-icon.png" alt="Profile" className={styles.profileIcon} />
+          <p className={styles.userName}>User</p>
         </div>
 
         {/* Menu Items */}
-        <ul className="menu-items">
-          <li className={`menu-item ${activeItem === 'home' ? 'selected' : ''}`}>
-            <Link to="/home" className="menu-link" onClick={() => closeMenu('home')}>Home 🏠</Link>
+        <ul className={styles.menuItems}>
+          <li className={`${styles.menuItem} ${activeItem === 'home' ? styles.menuItemSelected : ''}`}>
+            <Link to="/home" className={styles.menuLink} onClick={() => closeMenu('home')}>Home 🏠</Link>
           </li>
-          <li className={`menu-item ${activeItem === 'bingo' ? 'selected' : ''}`}>
-            <Link to="/bingo" className="menu-link" onClick={() => closeMenu('bingo')}>Bingo Game 🎱</Link>
+          <li className={`${styles.menuItem} ${activeItem === 'bingo' ? styles.menuItemSelected : ''}`}>
+            <Link to="/bingo" className={styles.menuLink} onClick={() => closeMenu('bingo')}>Bingo Game 🎱</Link>
           </li>
-          <li className={`menu-item ${activeItem === 'history' ? 'selected' : ''}`}>
-            <Link to="/game-history" className="menu-link" onClick={() => closeMenu('history')}>Game History 📅</Link>
+          <li className={`${styles.menuItem} ${activeItem === 'history' ? styles.menuItemSelected : ''}`}>
+            <Link to="/game-history" className={styles.menuLink} onClick={() => closeMenu('history')}>Game History 📅</Link>
           </li>
-          <li className={`menu-item ${activeItem === 'wallet' ? 'selected' : ''}`}>
-            <Link to="/wallet" className="menu-link" onClick={() => closeMenu('wallet')}>Wallet 💰</Link>
+          <li className={`${styles.menuItem} ${activeItem === 'wallet' ? styles.menuItemSelected : ''}`}>
+            <Link to="/wallet" className={styles.menuLink} onClick={() => closeMenu('wallet')}>Wallet 💰</Link>
           </li>
-          <li className={`menu-item ${activeItem === 'leaderboard' ? 'selected' : ''}`}>
-            <Link to="/leaderboard" className="menu-link" onClick={() => closeMenu('leaderboard')}>Leaderboard 🏆</Link>
+          <li className={`${styles.menuItem} ${activeItem === 'leaderboard' ? styles.menuItemSelected : ''}`}>
+            <Link to="/leaderboard" className={styles.menuLink} onClick={() => closeMenu('leaderboard')}>Leaderboard 🏆</Link>
           </li>
-          <li className={`menu-item ${activeItem === 'howtoplay' ? 'selected' : ''}`}>
-            <Link to="/howtoplay" className="menu-link" onClick={() => closeMenu('howtoplay')}>How To Play ❓</Link>
+          <li className={`${styles.menuItem} ${activeItem === 'howtoplay' ? styles.menuItemSelected : ''}`}>
+            <Link to="/howtoplay" className={styles.menuLink} onClick={() => closeMenu('howtoplay')}>How To Play ❓</Link>
           </li>
-          <li className={`menu-item ${activeItem === 'referral' ? 'selected' : ''}`}>
-            <Link to="/referral" className="menu-link" onClick={() => closeMenu('referral')}>Referral Income 📄</Link>
+          <li className={`${styles.menuItem} ${activeItem === 'referral' ? styles.menuItemSelected : ''}`}>
+            <Link to="/referral" className={styles.menuLink} onClick={() => closeMenu('referral')}>Referral Income 📄</Link>
           </li>
-          <li className={`menu-item ${activeItem === 'settings' ? 'selected' : ''}`}>
-            <Link to="/settings" className="menu-link" onClick={() => closeMenu('settings')}>Settings ⚙</Link>
-            <ul className="submenu">
-              <li>Profile</li>
-              <li>Contact</li>
+          <li className={`${styles.menuItem} ${activeItem === 'settings' ? styles.menuItemSelected : ''}`}>
+            <Link to="/settings" className={styles.menuLink} onClick={() => closeMenu('settings')}>Settings ⚙</Link>
+            <ul className={styles.submenu}>
+              <li className={styles.submenuLi}>Profile</li>
+              <li className={styles.submenuLi}>Contact</li>
             </ul>
           </li>
         </ul>
       </div>
 
       {/* Optional: Overlay for closing the menu when clicking outside */}
-      {isOpen && <div className="overlay" onClick={toggleMenu}></div>}
+      {isOpen && <div className={styles.overlay} onClick={toggleMenu}></div>}
     </div>
   );
 };

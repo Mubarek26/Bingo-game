@@ -1,5 +1,4 @@
-/* style.css */
-.history-container {
+.historyContainer {
   max-width: 80%;
   margin: 0 auto;
   padding: 30px;
@@ -17,7 +16,7 @@ h2 {
 }
 
 /* Table Styles */
-.history-table {
+.historyTable {
   width: 100%;
   border-collapse: separate;
   border-spacing: 0;
@@ -27,7 +26,7 @@ h2 {
   overflow: hidden;
 }
 
-.history-table th {
+.historyTable th {
   background: #e9ecef;
   padding: 16px 20px;
   text-align: left;
@@ -39,7 +38,7 @@ h2 {
   border-bottom: 1px solid #dee2e6;
 }
 
-.history-table td {
+.historyTable td {
   padding: 12px 20px;
   border-bottom: 1px solid #eceef1;
   color: #212529;
@@ -47,11 +46,11 @@ h2 {
   vertical-align: middle;
 }
 
-.history-table tr:last-child td {
+.historyTable tr:last-child td {
   border-bottom: none;
 }
 
-.history-table tr:hover {
+.historyTable tr:hover {
   background: #f8f9fa;
   transition: background 0.2s ease;
 }
@@ -124,12 +123,12 @@ h2 {
 
 /* Responsive Design */
 @media (max-width: 768px) {
-  .history-container {
+  .historyContainer {
       padding: 20px;
   }
 
-  .history-table th,
-  .history-table td {
+  .historyTable th,
+  .historyTable td {
       padding: 12px 15px;
       font-size: 13px;
   }

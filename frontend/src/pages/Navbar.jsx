@@ -1,44 +1,38 @@
-import { useState } from "react";
 import { Link, NavLink } from "react-router-dom";
-
-import "./Navbar.css";
+import styles from './Navbar.module.css';  // Import the CSS Module file
 import Language from "./Language.jsx";
 import Username from "./Username.jsx";
 import HamburgerMenu from "./HamburgerMenu.jsx";
 
 function Navbar() {
   return (
-    <nav className="navbar">
-      <div className="logo">
-        <Link to="/Home" className="logo-link">
+    <nav className={styles.navbar}>
+      <div className={styles.logo}>
+        <Link to="/Home" className={styles.logoLink}>
           Bingo
         </Link>
       </div>
 
       {/* Navigation Links */}
-      <div className="navbar-links">
-        <NavLink to="/Home" className="navbar-item" activeClassName="active">
+      <div className={styles.navbarLinks}>
+        <NavLink to="/Home" className={styles.navbarItem} activeClassName={styles.active}>
           Home
         </NavLink>
-        <NavLink to="/contact" className="navbar-item" activeClassName="active">
+        <NavLink to="/contact" className={styles.navbarItem} activeClassName={styles.active}>
           Contact
         </NavLink>
-        <NavLink
-          to="/howtoplay"
-          className="navbar-item"
-          activeClassName="active"
-        >
+        <NavLink to="/howtoplay" className={styles.navbarItem} activeClassName={styles.active}>
           How To Play
         </NavLink>
       </div>
 
       {/* Profile Section */}
-      <div className="profile">
+      <div className={styles.profile}>
         <Language />
         <Username />
       </div>
 
-      <div className="hamburger-container">
+      <div className={styles.hamburgerContainer}>
         <HamburgerMenu />
       </div>
     </nav>

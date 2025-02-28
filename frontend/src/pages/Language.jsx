@@ -1,5 +1,5 @@
 import { useState } from "react";
-import './Language.css';  // Import the CSS file
+import styles from './Language.module.css';  // Import the CSS Module file
 
 const Language = () => {
   const [selectedLang, setSelectedLang] = useState("en");
@@ -9,7 +9,7 @@ const Language = () => {
   };
 
   return (
-    <div className="language-container">
+    <div className={styles.languageContainer}>
       <select id="lang" value={selectedLang} onChange={handleChange}>
         <option value="en">English</option>
         <option value="am">Amharic</option>

@@ -21,13 +21,13 @@
 .title {
   font-size: 2rem;
   font-weight: bold;
-  color: #333; /* Dark color for better contrast */
+  color: #333;
   margin-bottom: 20px;
   text-align: center;
 }
 
 /* Error message styling */
-.error-message {
+.errorMessage {
   color: red;
   margin-bottom: 15px;
   text-align: center;
@@ -40,14 +40,14 @@
 }
 
 /* Grouping input fields and labels */
-.form-group {
+.formGroup {
   margin-bottom: 15px;
 }
 
 /* Labels for inputs */
 .label {
   font-size: 1rem;
-  color: #444; /* Dark gray for better visibility */
+  color: #444;
   margin-bottom: 5px;
 }
 
@@ -58,13 +58,13 @@ input {
   width: 100%;
   border: 1px solid #ccc;
   border-radius: 4px;
-  background-color: #fafafa; /* Light background for input fields */
-  color: #333; /* Dark text color for typed input */
+  background-color: #fafafa;
+  color: #333;
 }
 
 /* Placeholder styling */
 input::placeholder {
-  color: #888; /* Soft gray placeholder text */
+  color: #888;
 }
 
 /* Focused input field styling */
@@ -76,7 +76,7 @@ input:focus {
 /* Submit button styling */
 .button {
   padding: 12px;
-  background-color: #007bff; /* Primary blue color */
+  background-color: #007bff;
   color: white;
   border: none;
   border-radius: 4px;
@@ -85,7 +85,7 @@ input:focus {
 }
 
 .button:hover {
-  background-color: #0056b3; /* Darker blue on hover */
+  background-color: #0056b3;
 }
 
 /* Navigation link for login */
@@ -94,11 +94,11 @@ input:focus {
   margin-top: 10px;
 }
 
-.nav-link {
-  color: #007bff; /* Blue link color */
+.navLink {
+  color: #007bff;
   cursor: pointer;
 }
 
-.nav-link:hover {
+.navLink:hover {
   text-decoration: underline;
 }

@@ -1,11 +1,13 @@
-.balance-container {
+/* BalanceButton.module.css */
+
+.balanceContainer {
   display: flex;
   justify-content: flex-end;
   width: 100%;
   padding-right: 1rem; /* Adds padding on the right side to avoid button touching the edge */
 }
 
-.balance-button {
+.balanceButton {
   width: 10rem;
   padding: 10px 20px; /* Adds some padding for better appearance */
   margin: 0.5rem;
@@ -20,12 +22,12 @@
   transition: all 0.3s ease;
 }
 
-.balance-button:hover {
+.balanceButton:hover {
   background-color: #0056b3; /* Darker blue on hover for interactivity */
 }
 
 @media (max-width: 768px) {
-  .balance-button {
+  .balanceButton {
     width: 10rem; /* Reduced width on smaller screens */
     padding: 8px 16px; /* Reduced padding for better fit */
     font-size: 14px; /* Slightly smaller font size */
@@ -33,7 +35,7 @@
 }
 
 @media (max-width: 480px) {
-  .balance-button {
+  .balanceButton {
     width: 8rem; /* Even smaller width for very small screens */
     padding: 6px 12px; /* Further reduced padding */
     font-size: 12px; /* Smaller font size for mobile devices */
